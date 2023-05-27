@@ -18,7 +18,6 @@ export class GuardAuthService {
       this.router.navigateByUrl("/home");
       return false;
     }
-
     return true;
   }
 
@@ -27,22 +26,20 @@ export class GuardAuthService {
    */
   public canActiveWithAuth(): boolean {
     if (!this.tokenService.getToken()) {
-      alert("no tienes permisos");
-      this.router.navigateByUrl(""); //volver a pagina de inicio de sesion
+      this.router.navigateByUrl("");
       return false;
     }
-
     return true;
   }
 
+  /**
+   * Guardian que permite acceder a una pagina si se encuentra logueado y el rol es admin
+   */
   public canActiveWithRolAdmin(): boolean {
-
-    if (this.tokenService.getInfoToken().rol != Roles.ADMIN && !this.canActiveWithAuth()) {
-      alert("no tienes permisos");
-      this.router.navigateByUrl("");//volver a pagina de inicio de sesion
+    if (this.tokenService.getInfoToken().rol != Roles.ADMIN && !this.canActiveWithAuth()) {//si no esta autenticado y el rol no es admin devuelve false
+      this.router.navigateByUrl("");
       return false;
     }
-
     return true;
   }
 }

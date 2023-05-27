@@ -3,7 +3,7 @@ import {AbstractControl, FormControl, ValidationErrors, ValidatorFn} from '@angu
 /**
  * Clase para manejar Validadores personalizados
  */
-export class CustomValidators {
+export class s {
 
   /**
    * Valida si el numero ingresado pertenece a una fecha futura

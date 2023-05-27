@@ -3,10 +3,8 @@ import {AppBaseComponent} from "../../../../core/utils/AppBaseComponent";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
-import {CustomValidators} from "../../../../core/utils/CustomValidators";
 import {ErrorsForm} from "../../../../core/enums/ErrorsForm";
 import {RegisterRequestDto} from "../../../../core/dto/registerRequestDto";
-import { RegisterResponseDto } from 'src/app/core/dto/registerResponseDto';
 import Swal from 'sweetalert2'
 
 

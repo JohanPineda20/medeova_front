@@ -1,6 +1,6 @@
 export interface CustomerJwtDto {
   id: string;
-  fullname: string;
+  sub: string;
   email: string;
   rol: string;
   iat: number;

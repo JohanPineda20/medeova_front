@@ -25,7 +25,7 @@ export class LoginComponent extends AppBaseComponent {
   public message: string
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService, private tokenService: TokenService) {
-    super();
+    super();//por extender de AppBaseComponent
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email] ],
       password: ['', Validators.required ]
@@ -46,7 +46,6 @@ export class LoginComponent extends AppBaseComponent {
       }
 
       this.authService.signIn(dtoLogin).subscribe(response => {
-      console.log(this.tokenService.getInfoToken());
       this.router.navigateByUrl("/home");
       },
       error => {

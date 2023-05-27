@@ -8,7 +8,9 @@ import {CustomerJwtDto} from "../dto/customerJwtDto";
 })
 export class TokenService {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   public getToken(): string {
     return getCookie("token");
@@ -19,13 +21,12 @@ export class TokenService {
   }
 
   public deleteToken(): void {
-
+    setCookie("token", "", { expires: -1, path: "/" });
   }
 
 
   public getInfoToken(): CustomerJwtDto {
     let infoToken = jwt_decode(getCookie("token"));
-    console.log(infoToken)
     return <CustomerJwtDto>infoToken;
   }
 

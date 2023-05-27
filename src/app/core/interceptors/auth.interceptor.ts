@@ -10,7 +10,7 @@ import {TokenService} from "../services/token.service";
 import Swal from 'sweetalert2'
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class AuthInterceptor implements HttpInterceptor { //interceptar las solicitudes antes de que sean enviadas al servidor.
 
   constructor(private tokenService: TokenService) {}
 
@@ -22,9 +22,11 @@ export class AuthInterceptor implements HttpInterceptor {
     let token = this.tokenService.getToken();
 
     if (!token) {
-      return next.handle(request);
+      return next.handle(request); //si no hay ningún token de autenticación presente permite que las solicitudes continúen sin ser modificadas. Esto puede ser útil en escenarios donde algunas rutas o endpoints no requieren autenticación y se desea permitir el acceso sin la necesidad de un token.
     }
 
+
+    //para las solicitudes que necesitan llevar un token
     headers = {
       'Authorization': 'Bearer '+token
     }
