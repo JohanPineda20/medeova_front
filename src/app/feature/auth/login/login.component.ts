@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AppBaseComponent} from "../../../../core/utils/AppBaseComponent";
-import {AuthLoginRequestDto} from "../../../../core/dto/authLoginRequestDto";
-import {AuthService} from "../../../../core/services/auth.service";
+import {AppBaseComponent} from "src/app/core/utils/AppBaseComponent";
+import {AuthLoginRequestDto} from "src/app/core/dto/authLoginRequestDto";
+import {AuthService} from "src/app/core/services/auth.service";
 import {lastValueFrom} from "rxjs";
-import {TokenService} from "../../../../core/services/token.service";
-import {ErrorsForm} from "../../../../core/enums/ErrorsForm";
+import {TokenService} from "src/app/core/services/token.service";
+import {ErrorsForm} from "src/app/core/enums/ErrorsForm";
 import Swal from "sweetalert2";
 
 @Component({

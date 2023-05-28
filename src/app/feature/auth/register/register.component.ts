@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import {AppBaseComponent} from "../../../../core/utils/AppBaseComponent";
+import {AppBaseComponent} from "src/app/core/utils/AppBaseComponent";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {AuthService} from "../../../../core/services/auth.service";
-import {ErrorsForm} from "../../../../core/enums/ErrorsForm";
-import {RegisterRequestDto} from "../../../../core/dto/registerRequestDto";
+import {AuthService} from "src/app/core/services/auth.service";
+import {ErrorsForm} from "src/app/core/enums/ErrorsForm";
+import {RegisterRequestDto} from "src/app/core/dto/registerRequestDto";
 import Swal from 'sweetalert2'
-
-
 
 @Component({
   selector: 'app-register',
