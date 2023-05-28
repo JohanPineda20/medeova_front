@@ -1,0 +1,29 @@
+{
+    "unidades": [
+        {
+            "titulo": "Introduccón a la Teoría de la Computación",
+            "imagen": "assets/lenguaje2 1.jpg",
+            "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
+            "temas": [
+                {
+                    "titulo": "Historia de la teoría de la computación",
+                    "imagen": "url",
+                    "descripcion": "",
+                    "subtemas": [
+                        {
+                            "titulo": "",
+                            "descripcion" : ""
+                        }
+                    ],
+                    "multimedia": [
+                        {
+                            "titulo": "Primeros pasos de la teoría de la computación",
+                            "tipo": "1"
+                        }
+                    ],
+                    "actividades": ["1", "2"]
+                }
+            ]
+        }
+    ]
+}
