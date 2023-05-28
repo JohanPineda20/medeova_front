@@ -1,5 +1,5 @@
 <header>
-  <app-nav-home></app-nav-home>
+  <app-nav-student></app-nav-student>
 </header>
 <body>
   <div class="container-fluid">
@@ -99,7 +99,7 @@
             <!-- Basic Card Example -->
             <div class="card shadow mb-4" >
                 <div class="card-header py-3">
-                    <a class="m-0 font-weight-bold text-primary text-decoration-none" routerLink="/unidad-{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
+                    <a class="m-0 font-weight-bold text-primary text-decoration-none" routerLink="/unidad/{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
                 </div>
                 <div class="card-body">
                     {{i.descripcion}}

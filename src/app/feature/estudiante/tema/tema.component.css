@@ -1,0 +1,39 @@
+.subtema-title{
+    position: absolute;
+    width: 99%;
+    height: 25%;
+    color: white;
+    background: #AA1916;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.anterior{
+    position: fixed;
+    top:55%
+}
+
+.siguiente{
+    position: fixed;
+    top:70%;
+    left: 2%;
+}
+
+.container-content{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 35%;
+    left:10%;
+    right: 10%;
+
+    background: #FDFDFD;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.container-multimedia{
+    padding-top: 2%;
+}
+.container-multimedia iframe{
+    width: 400px;
+    height: 250px;
+}

@@ -1,0 +1,46 @@
+<header>
+    <app-nav-student></app-nav-student>
+    <!-- PAGE HEADING -->
+    <div class=" subtema-title">
+        <div>
+            <h1 class="h3 mb-0 text-gray-800">Unidad {{ids[0]+1}}: {{unidad?.titulo}}</h1>
+        </div>
+        <div class="row">
+            <img class="col-md-1" src="{{tema?.imagen}}">
+            <h1 class="col-md 8 h3 mb-0 text-gray-800">{{tema?.titulo}}</h1>            
+        </div>
+        <div class="">
+            <div class="d-sm-flex align-items-center">
+                <img src="{{subtema?.imagen}}" width="60px" height="60px">
+                <h1 class="h3 mb-0 text-gray-800">{{subtema?.titulo}}</h1>
+            </div>
+        </div>
+    </div>    
+</header>
+<aside class="anterior">
+    <div>
+        <button>Flecha hacia atras</button>
+    </div>
+</aside>
+<aside class="siguiente">
+    <div>
+        <button>Flecha hacia adelante</button>
+    </div>
+</aside>
+
+<body>
+    <div class="container-content">
+        <p>{{subtema?.contenido}}</p>  
+        <p>{{subtema?.contenido}}</p>        
+        <div class="row justify-content-center">
+            <div class="container-multimedia col-md-5 d-flex justify-content-center align-items-center" *ngFor="let i of subtema?.multimedia">
+                <p>{{i.titulo}}</p>
+                <iframe [src]="sanitizeUrl(i?.enlace)" title="{{i?.titulo}}" frameborder="0" autos></iframe>                
+            </div>
+        </div>
+        <p>{{subtema?.contenido}}</p>  
+        <p>{{subtema?.contenido}}</p>  
+    </div>
+    
+<!-- /.container-fluid -->
+</body>

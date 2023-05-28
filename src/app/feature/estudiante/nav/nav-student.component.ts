@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { TokenService } from 'src/app/core/services/token.service';
 
 @Component({
-  selector: 'app-nav-home',
-  templateUrl: './nav-home.component.html',
-  styleUrls: ['./nav-home.component.css']
+  selector: 'app-nav-student',
+  templateUrl: './nav-student.component.html',
+  styleUrls: ['./nav-student.component.css']
 })
-export class NavHomeComponent {
+export class NavStudentComponent {
 
   public username: string
 

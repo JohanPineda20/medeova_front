@@ -1,18 +1,29 @@
 {
     "unidades": [
         {
-            "titulo": "Introduccón a la Teoría de la Computación",
+            "titulo": "Introducción a la Teoría de la Computación",
             "imagen": "assets/lenguaje2 1.jpg",
             "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
             "temas": [
                 {
                     "titulo": "Historia de la teoría de la computación",
-                    "imagen": "url",
-                    "descripcion": "",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                    "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
                     "subtemas": [
                         {
-                            "titulo": "",
-                            "descripcion" : ""
+                            "titulo": "Subtema 1",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Subtema 2",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Subtema 3",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
                         }
                     ],
                     "multimedia": [
@@ -22,6 +33,40 @@
                         }
                     ],
                     "actividades": ["1", "2"]
+                },
+                {
+                    "titulo": "Conceptos básicos de la teoría de la computación",
+                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                    "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
+                    "subtemas": [
+                        {
+                            "titulo": "Subtema 1",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
+                            "contenido": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius sem venenatis neque tempus bibendum. Suspendisse potenti. In hac habitasse platea dictumst. Phasellus tempor venenatis efficitur. Nulla facilisi. Vivamus a elementum dolor. Mauris a aliquet massa, ac tempus neque. Mauris feugiat tincidunt auctor. Vivamus ut rhoncus lorem, ut mattis magna. Morbi fringilla sapien quis diam lacinia, eget vulputate diam accumsan. Nullam pretium in dui id mattis. Aenean vitae arcu nec velit faucibus dictum ac id orci. Sed pellentesque eleifend dui, eget iaculis diam facilisis non. Curabitur quis facilisis est, a imperdiet nisl. Vestibulum interdum lorem non enim elementum, ac sodales libero consequat. Nullam ac ligula nec velit tristique venenatis ac sit amet odio. Donec bibendum aliquam felis, at sagittis dui suscipit non.",
+                            "multimedia": [
+                                {
+                                    "titulo": "Primeros pasos de la teoría de la computación",
+                                    "enlace": "https://www.youtube.com/embed/29Qp_AWXFt4"
+                                },
+                                {
+                                    "titulo": "Introducción a la teoría de la computación",
+                                    "enlace": "https://books.google.com.co/books?id=NXQE8NJw9d4C&lpg=PA1&dq=Introducci%C3%B3n%2Ba%2Bla%2BTeor%C3%ADa%2Bde%2Bla%2Bcomputaci%C3%B3n&lr&hl=es&pg=PR1&output=embed"
+                                }
+                            ],
+                            "actividades": ["1", "2"]
+                        },
+                        {
+                            "titulo": "Subtema 2",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Subtema 3",
+                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        }
+                    ]
                 }
             ]
         }

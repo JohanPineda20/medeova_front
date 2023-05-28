@@ -13,16 +13,20 @@ import { RegisterComponent } from './feature/auth/register/register.component';
 //ADMIN
 
 //HOME
-import { NavHomeComponent } from './feature/home/nav/nav-home.component';
-import { HomeComponent } from './feature/home/home.component';
+import { NavStudentComponent } from './feature/estudiante/nav/nav-student.component';
+import { HomeComponent } from './feature/estudiante/home/home.component';
+import { UnidadComponent } from './feature/estudiante/unidad/unidad.component'; 
+import { TemaComponent } from './feature/estudiante/tema/tema.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavHomeComponent,
-    HomeComponent
+    NavStudentComponent,
+    HomeComponent,
+    UnidadComponent,
+    TemaComponent
   ],
   imports: [
     BrowserModule,
