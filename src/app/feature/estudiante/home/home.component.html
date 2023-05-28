@@ -98,15 +98,21 @@
             <!-- Basic Card Example -->
             <div class="card shadow mb-4 "  >
                 <div class="card-body p-4 d-flex flex-row">
-                    <p class="text-center p-2" style="font-size: 20px;">El Objeto Virtual de Aprendizaje "Introducción a la Teoría de la Computación:
+                    <p class="text-center p-2" style="font-size: 18px;">El Objeto Virtual de Aprendizaje "Introducción a la Teoría de la Computación:
                          Explorando los Fundamentos" es un recurso interactivo diseñado para brindar a los estudiantes una sólida comprensión de 
                          los fundamentos de la teoría de la computación. A través de una combinación de contenido teórico, ejemplos prácticos y 
                          actividades interactivas, este objeto virtual ofrece una experiencia de aprendizaje envolvente y autodidacta.  Brinda a los 
                          estudiantes una base sólida en la teoría de la computación, preparándolos para cursos más avanzados en ciencias de la 
                          computación y ayudándoles a comprender los conceptos subyacentes que sustentan el campo de la informatica.
+                         A lo largo de este curso, te sumergirás en un fascinante universo de autómatas, gramáticas formales y máquinas de Turing. 
+                         Explorarás cómo estos conceptos se entrelazan y brindan las bases para comprender la computabilidad y los límites de lo 
+                         que puede ser calculado por una máquina. Nuestro objetivo es que al finalizar este OVA, te sientas cómodo y seguro al 
+                         enfrentarte a los desafíos teóricos de la computación y que puedas aplicar estos conocimientos en situaciones prácticas. 
+                         Para lograrlo, hemos incluido actividades interactivas que te permitirán poner a prueba tus habilidades, recibir retroalimentación
+                         instantánea y fortalecer tu comprensión. 
                     </p>
-                    <div style="margin-right: 50px;">
-                        <img style="width: 110%" class="p-2" src="../../../../assets/Logo_de_UFPS.png" alt="logo-ufps">
+                    <div style="margin-right: 50px; margin-top: 50px;" class="p-2">
+                        <img style="width: 300px"  src="../../../../assets/Logo_de_UFPS.png" alt="logo-ufps">
                     </div>
                 </div>
                 
@@ -114,18 +120,62 @@
         </div>
         <div class="col-lg-3">
             <div class="card shadow mb-4 "  >
-
+                <div class="card-body p-4 ">    
+                    <h3 class="text-center">¡BIENVENIDOS!</h3>
+                    <br>
+                    <p class="text-center">
+                        ¡Bienvenido al Objeto Virtual de Aprendizaje "Introducción a la Teoría de la Computación: Explorando los Fundamentos"!
+                        Estamos encantados de que hayas decidido unirte a este emocionante viaje hacia el mundo de la teoría de la computación. 
+                        Este OVA ha sido diseñado para proporcionarte una experiencia de aprendizaje interactiva y autodidacta, donde podrás 
+                        adquirir los conocimientos fundamentales necesarios para comprender los conceptos clave de esta disciplina. 
+                        ¡Estamos emocionados de acompañarte en esta travesía del mundo de la teoría de la computación!
+                    </p>
+                    <div class="align-items-center text-center mt-3 ">
+                        <button type="button" class="btn btn-danger ">Empezar</button>
+                    </div>
+                    
+                </div>
             </div> 
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6" *ngFor="let i of unidades; let index = index">
+        <div class="col-lg-4" *ngFor="let i of unidades; let index = index">
             <!-- Basic Card Example -->
             <div class="card shadow mb-4" >
-                <div class="card-header py-3">
-                    <a class="m-0 font-weight-bold text-primary text-decoration-none" routerLink="/unidad/{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
+                <div class="text-center">
+                    <img style="width: 40%"  src="{{i.imagen}}" alt="logo-ufps">
                 </div>
-                <div class="card-body">
+                <div class="card-header py-3 text-center titulo-card">
+                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
+                </div>
+                <div class="card-body text-center">
+                    {{i.descripcion}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="arrow-button">
+            <a href="#temas"><span class="arrow-down"></span></a>
+        </button>
+    </div>
+</div>
+<div class="container-fluid" id="temas">
+    <br><br><br>    
+    <div class="row" style="background-color: #aa1619;"> 
+        <h2>TEMAS</h2>
+    </div>
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let i of unidades; let index = index">
+            <!-- Basic Card Example -->
+            <div class="card shadow mb-4" >
+                <div class="text-center">
+                    <img style="width: 40%"  src="{{i.imagen}}" alt="logo-ufps">
+                </div>
+                <div class="card-header py-3 text-center titulo-card">
+                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
+                </div>
+                <div class="card-body text-center">
                     {{i.descripcion}}
                 </div>
             </div>
