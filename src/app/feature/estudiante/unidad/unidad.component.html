@@ -1,16 +1,16 @@
 <header>
     <app-nav-student></app-nav-student>
     <!-- PAGE HEADING -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <div class="d-sm-flex align-items-center  mb-4" style="background-color: #aa1619;">
         <img src="{{unidad?.imagen}}">
-        <h1 class="h3 mb-0 text-gray-800">Unidad {{this.ids[0]+1}}: {{unidad?.titulo}}</h1>
+        <h1 class="h3 ms-3  float-left  " style="color: white; font-size: 3em; ">Unidad {{this.ids[0]+1}}: {{unidad?.titulo}}</h1>
     </div>  
 </header>
 
 <!-- ASIDE MENU BAR -->
-<aside>
-    <ul *ngFor="let t of unidad?.temas; let i=index">
-        <li  class="list-container row" (click)="changeTema(i)">
+<aside style="box-shadow:none ">
+    <ul *ngFor="let t of unidad?.temas; let i=index" style="margin-bottom: 0px;">
+        <li  class="list-container row" (click)="changeTema(i)" style="background-color: white; border: 1px solid #d8d8d8;" >
             <img class="col-md-2 list-img" src="{{t.imagen}}">
             <p class="col-md-8">{{t.titulo}}</p>
             <span><i class="col-md-2 fa-sharp fa-solid fa-play fa-lg"></i></span>
@@ -18,16 +18,18 @@
     </ul>     
 </aside>
 
-<body>
-    <div class="container-content">
-        <div class="row">
+<body style="min-height: fit-content;">
+    <div class="container-content" style="box-shadow:none ">
+        <div class="row m-4 mt-0">
             <img class="col-md-1 list-img" src="{{tema?.imagen}}">
             <h2 class="col-md-11">{{tema?.titulo}}</h2>
         </div>
-        <div>
+        <div class="m-4">
             <p>{{tema?.descripcion}}</p>
             <ul> <li *ngFor="let i of tema?.subtemas">{{i.titulo}}</li></ul>
-            <button routerLink="./tema/{{ids[1]}}">Ver Tematica</button>
+            <button type="button" class="btn btn-danger" routerLink="./tema/{{ids[1]}}">Ver Tematica</button>
+
+            
         </div>
     </div>
 <!-- /.container-fluid -->

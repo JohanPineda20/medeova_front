@@ -2,51 +2,37 @@
     "unidades": [
         {
             "titulo": "Introducción a la Teoría de la Computación",
-            "imagen": "assets/lenguaje2 1.jpg",
+            "imagen": "assets/lenguaje2 1.png",
             "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
             "temas": [
                 {
                     "titulo": "Historia de la teoría de la computación",
-                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
-                    "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
+                    "imagen": "https://compilandoconocimiento.files.wordpress.com/2017/01/mat32.gif?w=320&h=220",
+                    "descripcion": "La teoría de la computación comienza propiamente a principios del siglo XX, poco antes que las computadoras electrónicas fuesen inventadas. En esta época varios matemáticos se preguntaban si existía un método universal para resolver todos los problemas matemáticos. Para ello debían desarrollar la noción precisa de método para resolver problemas, es decir, la definición formal de algoritmo. Algunos de estos modelos formales fueron propuestos por precursores como Alonzo Church (cálculo Lambda), Kurt Gödel (funciones recursivas) y Alan Turing (máquina de Turing). Se ha mostrado que estos modelos son equivalentes en el sentido de que pueden simular los mismos algoritmos, aunque lo hagan de maneras diferentes. Entre los modelos de cómputo más recientes se encuentran los lenguajes de programación, que también han mostrado ser equivalentes a los modelos anteriores; esto es una fuerte evidencia de la conjetura de Church-Turing, de que todo algoritmo habido y por haber se puede simular en una máquina de Turing, o equivalentemente, usando funciones recursivas. En 2007 Nachum Dershowitz y Yuri Gurevich publicaron una demostración de esta conjetura basándose en cierta axiomatización de algoritmos.",
                     "subtemas": [
-                        {
-                            "titulo": "Subtema 1",
-                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
-                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
-                        },
-                        {
-                            "titulo": "Subtema 2",
-                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
-                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
-                        },
-                        {
-                            "titulo": "Subtema 3",
-                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
-                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
-                        }
+                        
                     ],
                     "multimedia": [
                         {
                             "titulo": "Primeros pasos de la teoría de la computación",
-                            "tipo": "1"
+                            "enlace": "https://www.youtube.com/embed/29Qp_AWXFt4"
                         }
                     ],
                     "actividades": ["1", "2"]
                 },
                 {
                     "titulo": "Conceptos básicos de la teoría de la computación",
-                    "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
-                    "descripcion": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
+                    "imagen": "https://compilandoconocimiento.files.wordpress.com/2017/01/mat32.gif?w=320&h=220",
+                    "descripcion": "La teoría de la computación se ocupa de determinar qué problemas pueden ser resueltos computacionalmente y con qué eficiencia. La teoría considera distintos modelos de cómputo, como los autómatas finitos (que son los más sencillos), las máquinas de Turing (que son las computadoras usuales de hoy en día) y las computadoras cuánticas (cuyo funcionamiento no es digital). Las lógicas y los lenguajes formales juegan un rol central en la teoría de la computación porque permiten expresar propiedades de los programas y razonar sobre su comportamiento. La teoría de la computación también se encarga de entender el límite entre los problemas computables y los no-computables y, dentro del mundo de lo computable, clasificarlos de acuerdo a su grado de simpleza o dificultad. En particular, estudiamos lógicas con buen comportamiento computacional, como las lógicas modales, tanto desde el punto de vista de la teoría de modelos como desde el de la teoría de prueba. Analizamos lenguajes eficientes de consultas que permiten razonar sobre distintas estructuras de representación del conocimiento. A un nivel más abstracto, investigamos las propiedades teóricas de los sistemas de reescritura y los modelos de cómputo fuertes, como el cálculo lambda.",
                     "subtemas": [
                         {
-                            "titulo": "Subtema 1",
-                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "titulo": "Lógica matemática",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
                             "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste.",
                             "contenido": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius sem venenatis neque tempus bibendum. Suspendisse potenti. In hac habitasse platea dictumst. Phasellus tempor venenatis efficitur. Nulla facilisi. Vivamus a elementum dolor. Mauris a aliquet massa, ac tempus neque. Mauris feugiat tincidunt auctor. Vivamus ut rhoncus lorem, ut mattis magna. Morbi fringilla sapien quis diam lacinia, eget vulputate diam accumsan. Nullam pretium in dui id mattis. Aenean vitae arcu nec velit faucibus dictum ac id orci. Sed pellentesque eleifend dui, eget iaculis diam facilisis non. Curabitur quis facilisis est, a imperdiet nisl. Vestibulum interdum lorem non enim elementum, ac sodales libero consequat. Nullam ac ligula nec velit tristique venenatis ac sit amet odio. Donec bibendum aliquam felis, at sagittis dui suscipit non.",
                             "multimedia": [
                                 {
-                                    "titulo": "Primeros pasos de la teoría de la computación",
+                                    "titulo": "Introducción: Conceptos básicos de Teoría de la Computación",
                                     "enlace": "https://www.youtube.com/embed/29Qp_AWXFt4"
                                 },
                                 {
@@ -57,16 +43,79 @@
                             "actividades": ["1", "2"]
                         },
                         {
-                            "titulo": "Subtema 2",
-                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "titulo": "Arquitectura computacional",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
                             "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
                         },
                         {
-                            "titulo": "Subtema 3",
-                            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Picture_icon_BLACK.svg/1156px-Picture_icon_BLACK.svg.png",
+                            "titulo": "Algoritmos y análisis de algoritmos",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Gramáticas y lenguajes",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
                             "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
                         }
                     ]
+                },
+                {
+                    "titulo": "Problemas y límites de la computación",
+                    "imagen": "https://compilandoconocimiento.files.wordpress.com/2017/01/mat32.gif?w=320&h=220",
+                    "descripcion": "La teoría de la computación comienza propiamente a principios del siglo XX, poco antes que las computadoras electrónicas fuesen inventadas. En esta época varios matemáticos se preguntaban si existía un método universal para resolver todos los problemas matemáticos. Para ello debían desarrollar la noción precisa de método para resolver problemas, es decir, la definición formal de algoritmo. Algunos de estos modelos formales fueron propuestos por precursores como Alonzo Church (cálculo Lambda), Kurt Gödel (funciones recursivas) y Alan Turing (máquina de Turing). Se ha mostrado que estos modelos son equivalentes en el sentido de que pueden simular los mismos algoritmos, aunque lo hagan de maneras diferentes. Entre los modelos de cómputo más recientes se encuentran los lenguajes de programación, que también han mostrado ser equivalentes a los modelos anteriores; esto es una fuerte evidencia de la conjetura de Church-Turing, de que todo algoritmo habido y por haber se puede simular en una máquina de Turing, o equivalentemente, usando funciones recursivas. En 2007 Nachum Dershowitz y Yuri Gurevich publicaron una demostración de esta conjetura basándose en cierta axiomatización de algoritmos.",
+                    "subtemas": [
+                        {
+                            "titulo": "Límites de la computación",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Problemas indecidibles",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Problemas computables y complejidad computacional",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        }
+                    ],
+                    "multimedia": [
+                        {
+                            "titulo": "Primeros pasos de la teoría de la computación",
+                            "enlace": "https://www.youtube.com/embed/29Qp_AWXFt4"
+                        }
+                    ],
+                    "actividades": ["1", "2"]
+                }, 
+                {
+                    "titulo": "Modelos de cómputo",
+                    "imagen": "https://compilandoconocimiento.files.wordpress.com/2017/01/mat32.gif?w=320&h=220",
+                    "descripcion": "La teoría de la computación comienza propiamente a principios del siglo XX, poco antes que las computadoras electrónicas fuesen inventadas. En esta época varios matemáticos se preguntaban si existía un método universal para resolver todos los problemas matemáticos. Para ello debían desarrollar la noción precisa de método para resolver problemas, es decir, la definición formal de algoritmo. Algunos de estos modelos formales fueron propuestos por precursores como Alonzo Church (cálculo Lambda), Kurt Gödel (funciones recursivas) y Alan Turing (máquina de Turing). Se ha mostrado que estos modelos son equivalentes en el sentido de que pueden simular los mismos algoritmos, aunque lo hagan de maneras diferentes. Entre los modelos de cómputo más recientes se encuentran los lenguajes de programación, que también han mostrado ser equivalentes a los modelos anteriores; esto es una fuerte evidencia de la conjetura de Church-Turing, de que todo algoritmo habido y por haber se puede simular en una máquina de Turing, o equivalentemente, usando funciones recursivas. En 2007 Nachum Dershowitz y Yuri Gurevich publicaron una demostración de esta conjetura basándose en cierta axiomatización de algoritmos.",
+                    "subtemas": [
+                        {
+                            "titulo": "Autómatas",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Funciones recursivas",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        },
+                        {
+                            "titulo": "Cálculo lambda",
+                            "imagen": "https://lavidauniversitaria2016.files.wordpress.com/2017/04/conocimiento.jpg?w=1000",
+                            "descripcion" : "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit, vero facere? Odit libero nam suscipit dolorem repellendus, exercitationem itaque laboriosam culpa rerum rem hic voluptas at ducimus, vel nemo iste."
+                        }
+                    ],
+                    "multimedia": [
+                        {
+                            "titulo": "Primeros pasos de la teoría de la computación",
+                            "enlace": "https://www.youtube.com/embed/29Qp_AWXFt4"
+                        }
+                    ],
+                    "actividades": ["1", "2"]
                 }
             ]
         }
