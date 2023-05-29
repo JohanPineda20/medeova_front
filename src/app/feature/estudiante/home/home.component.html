@@ -131,7 +131,7 @@
                         ¡Estamos emocionados de acompañarte en esta travesía del mundo de la teoría de la computación!
                     </p>
                     <div class="align-items-center text-center mt-3 ">
-                        <button type="button" class="btn btn-danger ">Empezar</button>
+                        <button type="button" class="btn btn-danger " routerLink="/unidad/0">Empezar</button>
                     </div>
                     
                 </div>
@@ -160,27 +160,42 @@
         </button>
     </div>
 </div>
-<div class="container-fluid" id="temas">
-    <br><br><br>    
-    <div class="row" style="background-color: #aa1619;"> 
-        <h2>TEMAS</h2>
+<div class="container-fluid" id="temas" style="min-height: 1200px; margin-top: 2em;" >
+        
+    <div class="row" style="background-color: #242424; height: fit-content;" > 
+        <div  style="color: white;">
+            <h2 class="mt-4 ms-4">Temas</h2>
+            <div class="text-center " style="margin: 3em;">
+                <p >
+                    Conceptos básicos de la teoría de la computación: El objeto virtual comienza introduciendo los conceptos fundamentales de la teoría
+                    de la computación, como autómatas finitos, gramáticas formales, máquinas de Turing y lenguajes formales. Los estudiantes adquieren
+                    una comprensión sólida de estos conceptos a través de explicaciones claras y ejemplos ilustrativos. Lenguajes formales y gramáticas:
+                    Se explora en detalle el estudio de los lenguajes formales y las gramáticas utilizadas para describirlos. Los estudiantes aprenderán
+                    sobre diferentes tipos de gramáticas, como gramáticas regulares, libres de contexto y sensibles al contexto, y su relación con la 
+                    generación de lenguajes formales. Autómatas y reconocimiento de lenguajes: Se centra en la teoría de autómatas, incluyendo
+                    autómatas finitos deterministas y no deterministas, autómatas de pila y máquinas de Turing. Los estudiantes explorarán cómo estos 
+                    modelos teóricos pueden utilizarse para reconocer y procesar lenguajes formales.
+                </p>
+            </div>
+           
+        </div>
+        
     </div>
-    <div class="row">
-        <div class="col-lg-4" *ngFor="let i of unidades; let index = index">
+    <div class="row" style="margin-top: 4em;">
+        <div class="col-lg-3" *ngFor="let i of unidades; let index = index">
             <!-- Basic Card Example -->
-            <div class="card shadow mb-4" >
-                <div class="text-center">
-                    <img style="width: 40%"  src="{{i.imagen}}" alt="logo-ufps">
-                </div>
+            <div class="card shadow mb-4" style="min-height: 300px;">
+                
                 <div class="card-header py-3 text-center titulo-card">
-                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
+                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{index}} " style="font-size: 2em;">Unidad {{index+1}}: {{i.titulo}} </a>
                 </div>
-                <div class="card-body text-center">
-                    {{i.descripcion}}
+                <div class="card-body text-center" *ngFor="let i of i.temas; let idx = index">
+                    {{idx+1}}: {{i.titulo}}
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 <!-- /.container-fluid -->
 </body>
