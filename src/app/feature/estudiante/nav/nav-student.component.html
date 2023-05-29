@@ -33,14 +33,14 @@
             Inicio </a>
         </li>
         <li class="nav-item">
-          <a class="navbar-brand" style="color: white" href="/#temas">Temas</a>
+          <a class="navbar-brand" style="color: white" href="/home/#temas">Temas</a>
         </li>
       </ul>
 
       <div class="container text-end">
         <div class="row">
           <div class="col">
-            <p class=" navbar-brand text-white text-end fw-bold" style="color: white">Bienvenido, {{username}}</p>
+            <p class=" navbar-brand text-white text-end fw-bold" style="color: white">{{username}}</p>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" routerLink="/profile">My profile</a>
           </li>
           <li>
             <a class="dropdown-item" href="#">Settings</a>

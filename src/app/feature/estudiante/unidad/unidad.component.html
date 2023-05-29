@@ -2,8 +2,8 @@
     <app-nav-student></app-nav-student>
     <!-- PAGE HEADING -->
     <div class="d-sm-flex align-items-center  mb-4" style="background-color: #aa1619;">
-        <img src="{{unidad?.imagen}}">
-        <h1 class="h3 ms-3  float-left  " style="color: white; font-size: 3em; ">Unidad {{this.ids[0]+1}}: {{unidad?.titulo}}</h1>
+        <img class="mx-auto" src="{{unidad?.imagen}}">
+        <h3 class="ms-3  float-left  " style="color: white; font-size: 2.5em; ">Unidad {{this.ids[0]+1}}: {{unidad?.titulo}}</h3>
     </div>  
 </header>
 
@@ -19,7 +19,7 @@
 </aside>
 
 <body style="min-height: fit-content;">
-    <div class="container-content" style="box-shadow:none ">
+    <div class="container-content" style="box-shadow:none">
         <div class="row m-4 mt-0">
             <img class="col-md-2 list-img" src="{{tema?.imagen}}">
             <h2 class="col-md-10">{{tema?.titulo}}</h2>
@@ -28,8 +28,6 @@
             <p>{{tema?.descripcion}}</p>
             <ul> <li *ngFor="let i of tema?.subtemas">{{i.titulo}}</li></ul>
             <button type="button" class="btn btn-danger" routerLink="./tema/{{ids[1]}}">Ver Tematica</button>
-
-            
         </div>
     </div>
 <!-- /.container-fluid -->
