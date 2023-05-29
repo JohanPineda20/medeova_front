@@ -1,10 +1,11 @@
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from 'src/app/app.component'; 
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
+import {register} from 'swiper/element/bundle'; register();
 
 //AUTH
 import { LoginComponent } from './feature/auth/login/login.component';
@@ -39,6 +40,7 @@ import { TemaComponent } from './feature/estudiante/tema/tema.component';
       provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { SwiperDirective } from 'src/app/core/utils/swiper.directive';
+import { Component} from '@angular/core';
 import { JsonService } from 'src/app/core/services/json.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import Swiper from 'swiper';
 
 @Component({
   selector: 'app-tema',
@@ -16,6 +18,7 @@ export class TemaComponent
   ids: number[] = []
 
   constructor(private jsonService: JsonService, private router: Router, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) {
+   
     this.ids[0] = Number(this.aRouter.snapshot.paramMap.get('idUnidad'))
     this.ids[1] = Number(this.aRouter.snapshot.paramMap.get('idTema'))
     this.loadData();
