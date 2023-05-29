@@ -1,9 +1,9 @@
 <header>
     <app-nav-student></app-nav-student>
     <!-- PAGE HEADING -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <img src="{{unidad?.imagen}}">
-        <h1 class="h3 mb-0 text-gray-800">Unidad {{this.ids[0]+1}}: {{unidad?.titulo}}</h1>
+    <div class="d-sm-flex align-items-center justify-content-between ">
+        <img class="mx-auto" src="{{unidad?.imagen}}">
+        <h3 class="mb-0 text-gray mx-auto">Unidad {{this.ids[0]+1}}: {{unidad?.titulo}}</h3>
     </div>  
 </header>
 
@@ -11,8 +11,8 @@
 <aside>
     <ul *ngFor="let t of unidad?.temas; let i=index">
         <li  class="list-container row" (click)="changeTema(i)">
-            <img class="col-md-2 list-img" src="{{t.imagen}}">
-            <p class="col-md-8">{{t.titulo}}</p>
+            <img class="col-md-2 list-img" src="{{t.imagen}}" >
+            <p class="col-md-8">{{i+1}}. {{t.titulo}}</p>
             <span><i class="col-md-2 fa-sharp fa-solid fa-play fa-lg"></i></span>
         </li>
     </ul>     

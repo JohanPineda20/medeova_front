@@ -17,6 +17,7 @@ import { NavStudentComponent } from './feature/estudiante/nav/nav-student.compon
 import { HomeComponent } from './feature/estudiante/home/home.component';
 import { UnidadComponent } from './feature/estudiante/unidad/unidad.component'; 
 import { TemaComponent } from './feature/estudiante/tema/tema.component';
+import { ProfileComponent } from './feature/estudiante/profile/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TemaComponent } from './feature/estudiante/tema/tema.component';
     NavStudentComponent,
     HomeComponent,
     UnidadComponent,
-    TemaComponent
+    TemaComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
