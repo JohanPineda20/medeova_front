@@ -1,9 +1,9 @@
-import { SwiperDirective } from 'src/app/core/utils/swiper.directive';
 import { Component} from '@angular/core';
-import { JsonService } from 'src/app/core/services/json.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import Swiper from 'swiper';
+import { TemaService } from 'src/app/core/services/tema.service';
+import { UnidadService } from 'src/app/core/services/unidad.service';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-tema',
@@ -12,27 +12,39 @@ import Swiper from 'swiper';
 })
 export class TemaComponent 
 {
-  unidad: any
-  tema: any
-  subtema: any
-  ids: number[] = []
+  unidad: any = ''
+  tema: any = ''
+  comentarios: any = []
+  actividades: any = []
+  usuario = {
+    "codigo": "1151910",
+     "perNom": "PAULA",
+     "sdoNom": "VALENTINA",
+     "perApell": "RICO",
+     "sdoApell": "LINDARTE",
+     "email": "paulavalentinarlin@ufps.edu.co",
+     "clave": "12345"
+  }
+  
 
-  constructor(private jsonService: JsonService, private router: Router, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) {
-   
-    this.ids[0] = Number(this.aRouter.snapshot.paramMap.get('idUnidad'))
-    this.ids[1] = Number(this.aRouter.snapshot.paramMap.get('idTema'))
-    this.loadData();
+  constructor(private temaService: TemaService, private unidadService: UnidadService, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) 
+  {   
+    this.unidadService.encontrar(this.aRouter.snapshot.paramMap.get('idUnidad')).subscribe(data => this.unidad = data)
+    this.temaService.encontrar(this.aRouter.snapshot.paramMap.get('idTema')).subscribe(data => {
+      this.tema = data
+      this.temaService.getComentarios(data.idTema).subscribe(data => this.comentarios = data)
+      this.temaService.getActividades(data.idTema).subscribe(data => this.actividades = data)
+    })
   }
 
-  loadData() {
-    this.jsonService.getUnidad(this.ids[0]).subscribe(data => this.unidad = data)
-    this.jsonService.getTema(this.ids[0], this.ids[1]).subscribe(data => this.tema = data)
-    this.changeSubtema(0)
-  }
-
-  changeSubtema(id:number){
-    console.log(id)
-    this.jsonService.getSubTema(this.ids[0], this.ids[1], id).subscribe(data => this.subtema = data)
+  addComentario(){
+    const comment = $("#commentInput").val()
+    var c = {
+      "tema": this.tema,
+      "usuario": this.usuario,
+      "comentario": comment
+    }
+    this.temaService.addComentario(this.tema.idTema, c).subscribe(data => this.temaService.getComentarios(this.tema.idTema).subscribe(data => this.comentarios = data))
   }
 
   sanitizeUrl(url: string): SafeResourceUrl {

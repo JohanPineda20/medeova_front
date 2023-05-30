@@ -1,0 +1,25 @@
+<header>
+    <app-nav-student></app-nav-student>
+    <!-- PAGE HEADING -->
+    <div class=" subtema-title">
+        <div class="row">
+            <img class="col-md-1" src="{{tema.img}}">
+            <h1 class="col-md 8 h3 mb-0 text-gray-800">{{tema.titulo}}</h1>            
+        </div>
+        
+    </div>    
+</header>
+
+<body>
+    <div class="container-content">
+        <div class="container-content" style="box-shadow:none">
+        <div class="row m-4 mt-0">
+            <h2 class="col-md-10">{{actividad.titulo}}</h2>
+        </div>
+        <div class="m-4">
+            <p>{{actividad.instrucciones}}</p>
+            <button type="button" class="btn btn-danger"><a href="{{actividad.url}}"></a>Ver Tematica</button>
+        </div>
+    </div>        
+    </div>
+</body>

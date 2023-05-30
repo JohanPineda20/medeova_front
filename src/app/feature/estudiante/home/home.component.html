@@ -7,16 +7,11 @@
         <div class="col-lg-3">
             <div class="card shadow mb-4 "  >
                 <div class="card-body p-4 ">    
-                    <h3 class="text-center">¡BIENVENIDO!</h3>
+                    <h3 class="text-center">{{mensajes?.titulo}}</h3>
                     <br>
-                    <p>
-                        Estamos encantados de que hayas decidido unirte a este emocionante viaje hacia el mundo de la teoría de la computación. 
-                        Este OVA ha sido diseñado para proporcionarte una experiencia de aprendizaje interactiva y autodidacta, donde podrás 
-                        adquirir los conocimientos fundamentales necesarios para comprender los conceptos clave de esta disciplina. 
-                        ¡Estamos emocionados de acompañarte en esta travesía del mundo de la teoría de la computación!
-                    </p>
+                    <p>{{mensajes?.introduccion}}</p>
                     <div class="align-items-center text-center mt-3 ">
-                        <button type="button" class="btn btn-danger " routerLink="/unidad/0">Empezar</button>
+                        <button type="button" class="btn btn-danger " routerLink="/unidad/{{unidades[0]?.idUnidad}}">Empezar</button>
                     </div>
                     
                 </div>
@@ -29,18 +24,8 @@
                     <div style="margin-right: 50px; margin-top: 50px;" class="p-2">
                         <img style="width: 250px"  src="../../../../assets/Logo_de_UFPS.png" alt="logo-ufps">
                     </div>
-                    <p class="p-2" style="font-size: 18px;">El Objeto Virtual de Aprendizaje "Introducción a la Teoría de la Computación:
-                         Explorando los Fundamentos" es un recurso interactivo diseñado para brindar a los estudiantes una sólida comprensión de 
-                         los fundamentos de la teoría de la computación. A través de una combinación de contenido teórico, ejemplos prácticos y 
-                         actividades interactivas, este objeto virtual ofrece una experiencia de aprendizaje envolvente y autodidacta.  Brinda a los 
-                         estudiantes una información complementaria de lo visto en clase, preparándolos para cursos más avanzados en ciencias de la 
-                         computación y ayudándoles a comprender los conceptos subyacentes que sustentan el campo de la informatica.
-                         A lo largo de este curso, te sumergirás en un fascinante universo de autómatas, gramáticas formales y máquinas de Turing. 
-                         Explorarás cómo estos conceptos se entrelazan y brindan las bases para comprender la computabilidad y los límites de lo 
-                         que puede ser calculado por una máquina.
-                    </p>
-                </div>
-                
+                    <p class="p-2" style="font-size: 18px;"> {{mensajes?.presentacion}}</p>
+                </div>                
             </div>
         </div>
     </div>
@@ -49,10 +34,10 @@
             <!-- Basic Card Example -->
             <div class="card shadow mb-4" >
                 <div class="text-center">
-                    <img style="width: 40%"  src="{{i.imagen}}" alt="logo-ufps">
+                    <img style="width: 40%"  src="{{i.img}}" alt="logo-ufps">
                 </div>
                 <div class="card-header py-3 text-center titulo-card">
-                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{index}}">Unidad {{index+1}}: {{i.titulo}}</a>
+                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{i.idUnidad}}">Unidad {{index+1}}: {{i.titulo}}</a>
                 </div>
                 <div class="card-body text-center">
                     {{i.descripcion}}
@@ -87,16 +72,7 @@
             </div>
             
             <div class="text-center " style="margin: 2em; font-size: 18px;">
-                <p >
-                    Conceptos básicos de la teoría de la computación: El objeto virtual comienza introduciendo los conceptos fundamentales de la teoría
-                    de la computación, como autómatas finitos, gramáticas formales, máquinas de Turing y lenguajes formales. Los estudiantes adquieren
-                    una comprensión sólida de estos conceptos a través de explicaciones claras y ejemplos ilustrativos. Lenguajes formales y gramáticas:
-                    Se explora en detalle el estudio de los lenguajes formales y las gramáticas utilizadas para describirlos. Los estudiantes aprenderán
-                    sobre diferentes tipos de gramáticas, como gramáticas regulares, libres de contexto y sensibles al contexto, y su relación con la 
-                    generación de lenguajes formales. Autómatas y reconocimiento de lenguajes: Se centra en la teoría de autómatas, incluyendo
-                    autómatas finitos deterministas y no deterministas, autómatas de pila y máquinas de Turing. Los estudiantes explorarán cómo estos 
-                    modelos teóricos pueden utilizarse para reconocer y procesar lenguajes formales.
-                </p>
+                <p>{{mensajes?.temas}}</p>
             </div>
            
         </div>
@@ -108,10 +84,10 @@
             <div class="card shadow mb-4" style="min-height: 300px;">
                 
                 <div class="card-header py-3 text-center titulo-card">
-                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{index}} " style="font-size: 2em;">Unidad {{index+1}}: {{i.titulo}} </a>
+                    <a class="m-0 font-weight-bold titulo-card text-decoration-none" routerLink="/unidad/{{i.idUnidad}}" style="font-size: 2em;">Unidad {{index+1}}: {{i.titulo}} </a>
                 </div>
-                <div class="card-body text-center" *ngFor="let i of i.temas; let idx = index">
-                    {{idx+1}}: {{i.titulo}}
+                <div class="card-body text-center" *ngFor="let j of i.temas; let idx = index">
+                    {{idx+1}}: {{j.titulo}}
                 </div>
             </div>
         </div>

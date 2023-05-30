@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { JsonService } from 'src/app/core/services/json.service';
+import { UnidadService } from 'src/app/core/services/unidad.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import * as fs from 'fs';
+import { FileSaverService } from 'ngx-filesaver';
 
 
 @Component({
@@ -10,25 +13,35 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UnidadComponent 
 {
-  ids: number[] = []
-  unidad: any
-  tema: any
+  unidad: any = ''
+  tema: any = ''
 
-  constructor(private jsonService: JsonService, private router: Router, private aRouter: ActivatedRoute) {
-    this.ids[0] = Number(this.aRouter.snapshot.paramMap.get('idUnidad'))
-    this.loadData();
+  constructor(private unidadService: UnidadService, private router: Router, private aRouter: ActivatedRoute, private http: HttpClient, private fileSaverService: FileSaverService) {
+    this.unidadService.encontrar(this.aRouter.snapshot.paramMap.get('idUnidad')).subscribe(data =>{
+      this.unidad = data
+      this.tema = this.unidad.temas[0]
+    })
   }
 
-  loadData() {
-    this.jsonService.getUnidad(this.ids[0]).subscribe(data => {
-        this.unidad = data
-        this.changeTema(0)
-      }
-    );
-  }
+  getTextFile() { 
+    this.http.get('assets/texto.txt', { responseType: 'text' }) 
+      .subscribe(data => { 
+        console.log(data)
+        console.log(typeof data)
+        //this.fileSaverService.save((<any>data), 'assets/foo.txt');
+        /*const fileContent = data;
+        const file = new Blob([fileContent], { type: 'text/plain' });
+        const fileURL = URL.createObjectURL(file);
+        const a = document.createElement('a');
+        a.href = fileURL;
+        a.download = 'foo.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);*/
+      }); 
+  } 
 
   changeTema(id:number){
-    this.ids[1] = id
-    this.jsonService.getTema(this.ids[0], this.ids[1]).subscribe(data => this.tema = data)
+    this.tema = this.unidad.temas[id]
   }
 }

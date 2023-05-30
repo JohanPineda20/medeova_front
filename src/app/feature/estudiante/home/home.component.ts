@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { JsonService } from 'src/app/core/services/json.service';
-import { Router } from '@angular/router';
-import { TokenService } from 'src/app/core/services/token.service';
+import { UnidadService } from 'src/app/core/services/unidad.service';
 
 
 @Component({
@@ -9,21 +8,14 @@ import { TokenService } from 'src/app/core/services/token.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  unidades : any[]
+export class HomeComponent 
+{
+  unidades : any = []
+  mensajes: any = []
 
-  constructor(private jsonService: JsonService, private router: Router) {
-    this.getJsonData();
+  constructor(private jsonService: JsonService, private unidadService: UnidadService)
+  {
+    this.jsonService.getJsonData('assets/home.json').subscribe(data => this.mensajes = data)
+    this.unidadService.listar().subscribe(data => this.unidades = data)
   }
-
-  getJsonData() {
-    this.jsonService.getJsonData().subscribe(data => {
-        this.unidades = data.unidades;
-        console.log(data.unidades)
-      }
-    );
-  }
-  
-
-  
 }

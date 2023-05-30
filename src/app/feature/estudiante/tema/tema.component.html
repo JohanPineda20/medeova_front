@@ -3,11 +3,11 @@
     <!-- PAGE HEADING -->
     <div class=" subtema-title">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Unidad {{ids[0]+1}}: {{unidad?.titulo}}</h1>
+            <h1 class="h3 mb-0 text-gray-800">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h1>
         </div>
         <div class="row">
-            <img class="col-md-1" src="{{tema?.imagen}}">
-            <h1 class="col-md 8 h3 mb-0 text-gray-800">{{tema?.titulo}}</h1>            
+            <img class="col-md-1" src="{{tema.img}}">
+            <h1 class="col-md 8 h3 mb-0 text-gray-800">{{tema.titulo}}</h1>            
         </div>
         
     </div>    
@@ -15,25 +15,58 @@
 
 <body>
     <div class="container-content">
-        <swiper-container class="mySwiper" pagination="true" pagination-type="progressbar" navigation="true">
-            <swiper-slide *ngFor="let i of tema?.subtemas">
+        <!-- SWIPER SUBTEMAS ACTIVIDADES -->
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true"  keyboard="true" >
+            <!-- SLIDES SUBTEMAS Y CONTENIDOS MULTIMEDIA -->
+            <swiper-slide *ngFor="let i of tema.subtemas">
                 <div class="title row">
-                    <img class="col-md-1" src="{{i.imagen}}">
+                    <img class="col-md-1" src="{{i.img}}">
                     <div class="col-md-11">{{i.titulo}}</div>                    
                 </div>
                 <div class="subtitle"><p>{{i.descripcion}}</p></div>
                 <div class="text"><p>{{i.contenido}}</p></div>
                 <div class="row justify-content-center align-items-center">
-                    <div class="container-multimedia col-md-6 d-flex" *ngFor="let m of i?.multimedia">
-                        <div class="media-container">
+                    <div class="container-multimedia col-md-6 d-flex" *ngFor="let m of i.multimedia">
+                        <div>
                             <p class="subtitle">{{m.titulo}}</p>
-                            <iframe [src]="sanitizeUrl(m?.enlace)" title="{{m?.titulo}}" frameborder="0" autos></iframe>  
+                            <iframe [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
                         </div>
                     </div>
                 </div>
             </swiper-slide>
-          </swiper-container>
+            <!-- ACTIVIDADES  -->
+            <swiper-slide>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-5" *ngFor="let a of actividades">
+                        <div class="container-actividad ">
+                            <p class="subtitle">{{a.titulo}}</p>
+                            <p class="text"><strong>Objetivo: </strong>{{a.objetivo}}</p>
+                            <button type="button" class="btn btn-danger" routerLink="/actividad/{{a.idActividad}}">Ir a la actividad</button>
+                        </div>
+                    </div>                                   
+                </div>                
+            </swiper-slide>
+        </swiper-container>
+
+
+        <!-- COMENTARIOS -->
+        <!-- CREAR COMENTARIO -->
+        <div class="comentario-form">
+            <div class="form-group">
+                <textarea id="commentInput" class="form-control" rows="5"></textarea>
+            </div>
+            <button (click)="addComentario()" class="btn btn-primary">Enviar comentario</button>
+        </div>
+        
+        <!-- MOSTRAR COMENTARIOS -->
+        <div class="comentario-box">
+          <div id="comment-section">
+            <h3>Comments:</h3>
+            <div id="comentario-container" class="form-control" *ngFor="let c of comentarios">
+                <strong>{{c.usuario.perNom}} {{c.usuario.perApell}}</strong> <p>{{c.createdAt}}</p>
+                <p>{{c.comentario}}</p>
+            </div>
+          </div>
+        </div>          
     </div>
-    
-<!-- /.container-fluid -->
 </body>

@@ -10,9 +10,9 @@ export class JsonService {
 
   constructor(private http: HttpClient) {}
 
-  getJsonData() {
+  getJsonData(url:any) {
     //return this.http.get(this.url);
-    return this.http.get<any>('assets/data.json')
+    return this.http.get<any>(url)
   }
 
   getUnidad(i: number){
