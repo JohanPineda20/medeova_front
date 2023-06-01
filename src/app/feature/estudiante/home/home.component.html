@@ -2,6 +2,7 @@
   <app-nav-student></app-nav-student>
 </header>
 <body>
+    
   <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-lg-3">
@@ -45,23 +46,30 @@
             </div>
         </div>
     </div>
+     
+    <!-- Button para desplegar el container-fluid 2-->
     <div class="text-center">
-        <button class="arrow-button">
-            <a href="#temas"><span class="arrow-down"></span></a>
-        </button>
+      <button
+      class="navbar-toggler arrow-button"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#temas"
+      aria-controls="temas"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="arrow-down"></span>
+      </button>
     </div>
+    
 </div>
+<!-- /.container-fluid 1-->
+
 <div class="container-fluid" id="temas" style="min-height: 1200px; margin-top: 2em;" >
         
     <div class="row" style="background-color: #242424; height: fit-content;" > 
         <div  style="color: white;">
 
-<!--
-<<<<<<< HEAD
-            <h2 class="mt-4 ms-4 text-center">Temas</h2>
-            <div style="margin: 3em;">
-                <p class="text-center">
-======= -->
+
             <div class="d-flex flex-row">
                 <div class="pt-3">
                     <img src="../../../../assets/Rectangle 10.png" alt="">
@@ -94,6 +102,7 @@
     </div>
     
 </div>
-<!-- /.container-fluid -->
+<!-- /.container-fluid 2-->
+
 </body>
 
