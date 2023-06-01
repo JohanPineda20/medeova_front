@@ -1,0 +1,48 @@
+<head>
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+     <!----===== Iconscout CSS ===== -->
+     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <nav>
+    <nav>
+      <div class="sidebar">
+        <div class="logo">
+          <i class="bx bx-menu menu-icon"></i>
+          <span class="logo-name">Medeova UFPS</span>
+        </div>
+
+        <div class="sidebar-content">
+          <ul class="lists">
+            <li class="list" *ngFor="let i of menuItems">
+              <a href="{{i[2]}}" class="nav-link">
+                <i class="{{i[1]}}"></i>
+                <span class="link">{{i[0]}}</span>
+              </a>
+          </ul>
+
+          <div class="bottom-cotent lists">
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-cog icon"></i>
+                <span class="link">Mi perfil</span>
+              </a>
+            </li>
+            <li class="list">
+              <a href="#" class="nav-link">
+                <i class="bx bx-log-out icon"></i>
+                <span class="link">Logout</span>
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="overlay"></section>
+</nav>

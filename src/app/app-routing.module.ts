@@ -7,18 +7,28 @@ import { UnidadComponent } from './feature/estudiante/unidad/unidad.component';
 import { TemaComponent } from './feature/estudiante/tema/tema.component'
 import { ProfileComponent } from './feature/estudiante/profile/profile.component'
 import { ActividadComponent } from './feature/estudiante/actividad/actividad.component'
+import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-admin.component'
+import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component'
+import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component'
+import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component'
 
 const routes: Routes = [
+  //Auth
   {path: '',component: LoginComponent},
   {path: 'login',component: LoginComponent},
   {path: 'singup',component: RegisterComponent},
+  //HOME
   {path: 'home',component: HomeComponent},
+  //ESTUDIANTE
   {path: 'profile',component: ProfileComponent},
   {path: 'unidad/:idUnidad',component: UnidadComponent},
   {path: 'unidad/:idUnidad/tema/:idTema',component: TemaComponent},
   {path: 'actividad/:idActividad',component: ActividadComponent},
-  //{path: 'admin',component: AdminComponent},
-  
+  //ADMIN
+  {path: 'dashboard', component: DashboardAdminComponent},
+  {path: 'actividades', component: ActividadesAdminComponent},
+  {path: 'estudiantes', component: EstudiantesAdminComponent},
+  {path: 'contenidos', component: ContenidosAdminComponent}  
 ];
 
 @NgModule({
