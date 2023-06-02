@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-4" *ngFor="let i of unidades; let index = index">
+        <div class="col-lg-3" *ngFor="let i of unidades; let index = index">
             <!-- Basic Card Example -->
             <div class="card shadow mb-4" >
                 <div class="text-center">
@@ -47,24 +47,12 @@
         </div>
     </div>
      
-    <!-- Button para desplegar el container-fluid 2-->
-    <div class="text-center">
-      <button
-      class="navbar-toggler arrow-button"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#temas"
-      aria-controls="temas"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="arrow-down"></span>
-      </button>
-    </div>
+    
     
 </div>
 <!-- /.container-fluid 1-->
 
-<div class="container-fluid" id="temas" style="min-height: 1200px; margin-top: 2em;" >
+<div class="container-fluid"  style="min-height: 1200px; margin-top: 2em;" >
         
     <div class="row" style="background-color: #242424; height: fit-content;" > 
         <div  style="color: white;">
@@ -82,11 +70,24 @@
             <div class="text-center " style="margin: 2em; font-size: 18px;">
                 <p>{{mensajes?.temas}}</p>
             </div>
-           
+           <!-- Button para desplegar el container-fluid 2-->
+    <div class="text-center">
+        <button
+        class="navbar-toggler arrow-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#temas"
+        aria-controls="temas"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="arrow-down"></span>
+        </button>
+      </div>
+      <br>
         </div>
         
     </div>
-    <div class="row" style="margin-top: 4em;">
+    <div class="row" style="margin-top: 4em;" id="temas">
         <div class="col-lg-3" *ngFor="let i of unidades; let index = index">
             <!-- Basic Card Example -->
             <div class="card shadow mb-4" style="min-height: 300px;">

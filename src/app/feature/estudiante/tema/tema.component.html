@@ -3,36 +3,46 @@
     <!-- PAGE HEADING -->
     <div class=" subtema-title">
         <div>
-            <h1 class="h3 mb-0 text-gray-800">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h1>
+            <h1 class="h3 mb-2 text-gray-800">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h1>
         </div>
-        <div class="row">
-            <img class="col-md-1" src="{{tema.img}}">
-            <h1 class="col-md 8 h3 mb-0 text-gray-800">{{tema.titulo}}</h1>            
+        <div class="row" style="--bs-gutter-x: 0">
+            <img class="col-md-1" src="{{tema.img}}" >
+            <h3 class="col-md 8 h3 mb-2 mt-3 text-gray-800">{{tema.titulo}}</h3>            
         </div>
         
     </div>    
 </header>
 
 <body>
+    <div>
+        <img class="imagen-rotada" src="../../../../assets/logoufps.png" alt="ufps">
+    </div>
     <div class="container-content">
         <!-- SWIPER SUBTEMAS ACTIVIDADES -->
         <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true"  keyboard="true" >
             <!-- SLIDES SUBTEMAS Y CONTENIDOS MULTIMEDIA -->
-            <swiper-slide *ngFor="let i of tema.subtemas">
-                <div class="title row">
-                    <img class="col-md-1" src="{{i.img}}">
-                    <div class="col-md-11">{{i.titulo}}</div>                    
-                </div>
-                <div class="subtitle"><p>{{i.descripcion}}</p></div>
-                <div class="text"><p>{{i.contenido}}</p></div>
-                <div class="row justify-content-center align-items-center">
-                    <div class="container-multimedia col-md-6 d-flex" *ngFor="let m of i.multimedia">
-                        <div>
-                            <p class="subtitle">{{m.titulo}}</p>
-                            <iframe [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
+            <swiper-slide *ngFor="let i of tema.subtemas"  > 
+                <div class="content">
+                    <div class="title row">
+                        <img class="col-md-1" src="{{i.img}}" style="max-width: 120px;">
+                        <div class="col-md-11 titulo">{{i.titulo}}</div>                    
+                    </div>
+                    <div class="justify">
+                        <div class="subtitle"><p>{{i.descripcion}}</p></div>
+                        <div class="text"><p>{{i.contenido}}</p></div>
+                    </div>
+                    
+                    <div class="row" style="text-align: center; gap: 6em;" >
+                       
+                        <div class="container-multimedia col-md-5 " *ngFor="let m of i.multimedia">
+                            <div>
+                                <p class="subtitle">{{m.titulo}}</p>
+                                <iframe style="max-width: 90%;" [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
+                            </div>
                         </div>
                     </div>
                 </div>
+                <hr>
             </swiper-slide>
             <!-- ACTIVIDADES  -->
             <swiper-slide>
