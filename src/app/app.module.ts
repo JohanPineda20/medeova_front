@@ -8,6 +8,15 @@ import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
 
+//ANGULAR MATERIAL
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 //AUTH
 import { LoginComponent } from './feature/auth/login/login.component';
 import { RegisterComponent } from './feature/auth/register/register.component';
@@ -51,6 +60,7 @@ import { ScriptsService } from './core/services/scripts.service';
     EstudiantesAdminComponent,
     ContenidosAdminComponent,
     ActividadesAdminComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -58,7 +68,14 @@ import { ScriptsService } from './core/services/scripts.service';
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
-    NgChartsModule
+    NgChartsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [
     ScriptsService,

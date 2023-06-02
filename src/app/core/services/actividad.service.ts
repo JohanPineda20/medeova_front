@@ -19,6 +19,14 @@ export class ActividadService {
     return this.http.get<any>(`${this.uri}/${id}`);
   }
 
+  public getPorcentaje(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/porcentaje`);
+  }
+
+  public getPromedioDificultad(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/promedio`);
+  }
+
   public guardar(nuevo:any):Observable<any>{
     return this.http.post<any>(`${this.uri}`, nuevo);
   }
