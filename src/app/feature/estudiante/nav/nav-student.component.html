@@ -37,7 +37,7 @@
       <div class="container text-end">
         <div class="row">
           <div class="col">
-            <p class=" navbar-brand text-white text-end fw-bold" style="color: white">{{username}}</p>
+            <p class=" navbar-brand text-white text-end fw-bold" style="color: white">Hola, {{username}}</p>
           </div>
         </div>
       </div>
@@ -69,13 +69,13 @@
           aria-labelledby="navbarDropdownMenuAvatar"
         >
           <li>
-            <a class="dropdown-item" routerLink="/profile">My profile</a>
+            <a class="dropdown-item" routerLink="/profile">Mi perfil</a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="/home">Settings</a>
           </li>
           <li>
-            <button class="dropdown-item" (click)="logout()">Log out</button>
+            <button class="dropdown-item" (click)="logout()">Cerrar sesión</button>
           </li>
         </ul>
       </div>

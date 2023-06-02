@@ -18,6 +18,9 @@ export class AuthService {
 
   constructor(private http: HttpClient, private tokenService: TokenService) { }
 
+  public register(registerDto: RegisterRequestDto): Observable<RegisterResponseDto> {
+    return this.http.post<RegisterResponseDto>(`${apiUrl}/api/auth/signup`, registerDto);
+  }
 
   public signIn(authDto: AuthLoginRequestDto): Observable<AuthLoginResponseDto> {
        return this.http.post<AuthLoginResponseDto>(`${apiUrl}/api/auth/login`, authDto).pipe(
@@ -28,7 +31,4 @@ export class AuthService {
       );
   }
 
-  public register(registerDto: RegisterRequestDto): Observable<RegisterResponseDto> {
-    return this.http.post<RegisterResponseDto>(`${apiUrl}/api/auth/signup`, registerDto);
-  }
 }

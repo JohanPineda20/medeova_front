@@ -12,11 +12,11 @@ export class NavStudentComponent {
   public username: string
 
   constructor(private router:Router, private tokenService:TokenService){
-    //this.username=this.tokenService.getInfoToken().sub
+    this.username=this.tokenService.getInfoToken().sub
   }
 
   logout(): void {
-    //this.tokenService.deleteToken(); //eliminar token de la cookie para colocar guard en false
-    //this.router.navigateByUrl(""); //regresar al login
+    this.tokenService.deleteToken(); //eliminar token de la cookie para colocar guard en false
+    this.router.navigateByUrl(""); //regresar al login
   }
 }

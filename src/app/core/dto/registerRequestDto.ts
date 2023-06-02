@@ -1,6 +1,3 @@
 export interface RegisterRequestDto {
-  //cardId: string;
-  username: string;
-  email: string;
-  password:string;
+//los atributos los incorpora el formulario
 }

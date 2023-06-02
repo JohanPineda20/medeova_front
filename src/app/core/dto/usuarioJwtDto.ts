@@ -1,4 +1,4 @@
-export interface CustomerJwtDto {
+export interface UsuarioJwtDto {
   id: string;
   sub: string;
   email: string;
