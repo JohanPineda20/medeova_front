@@ -1,98 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-const ADMIN_NAME = "ROLE_ADMIN";
-
-import { ChartData, ChartConfiguration, ChartType, ChartOptions} from 'chart.js'
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';;
+import { Component, OnInit } from '@angular/core';
+import { ChartData, ChartConfiguration, ChartOptions } from 'chart.js'
 
+import { ActividadService } from 'src/app/core/services/actividad.service';
+import { UnidadService } from 'src/app/core/services/unidad.service';
 
-@Component({  
+const backgroundColors = ['rgba(255, 99, 132, 0.2)', 'rgba(255, 159, 64, 0.2)', 'rgba(255, 205, 86, 0.2)',
+  'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(201, 203, 207, 0.2)']
+const borderColors = ['rgb(255, 99, 132)', 'rgb(255, 159, 64)', 'rgb(255, 205, 86)', 'rgb(75, 192, 192)',
+  'rgb(54, 162, 235)', 'rgb(153, 102, 255)', 'rgb(201, 203, 207)']
+
+@Component({
   templateUrl: './dashboard-admin.component.html',
   styleUrls: ['./dashboard-admin.component.css']
 })
+export class DashboardAdminComponent implements OnInit {
+  // PROGRESO DE ACTIVIDADES
+  actividadesTotal: number = 0; actividadesCompletadas: number = 0;
+  progresoDoughnutData: ChartData<'doughnut'>
 
-export class DashboardAdminComponent implements OnInit
-{
-  // Doughnut
-  public doughnutChartData: ChartData<'doughnut'> = {
-      labels:  [ 'Completas', 'Incompletas'],
-      datasets: [{ data: [ 35, 75 ] }]
-    };
+  //PROGRESO POR UNIDAD
+  unidades: any = []
+  progresoBarData: ChartData<'bar'>
+  progresoBarOptions: ChartConfiguration['options']
 
-  //BAR
-  public labels = ['Unidad 1', 'Unidad 2', 'Unidad 3', 'Unidad 4', 'Unidad 5']
-  data = {
-  labels: this.labels,
-  datasets: [{
-    
-    label: 'Porcentaje',
-    data: [65, 100, 80, 81, 100],
-    backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(153, 102, 255, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(153, 102, 255)',
-      'rgb(201, 203, 207)'
-    ],
-    borderWidth: 1
-  }]
-  
-}
-public options: ChartOptions ={
-  plugins: {
-    legend: {
-      display: false,
-    },
-  },
-    indexAxis: 'y',
-      responsive: false,
-      maintainAspectRatio: true,
-      aspectRatio: 1.5,
-  }
+  //CANTIDAD DE TEMAS POR UNIDAD
+  cntTemasBarData: ChartData<'bar'>
+  cntTemasBarOptions: ChartConfiguration['options']
 
-
-
-  //OTRA BARRA
-  public barChartOptions: ChartConfiguration['options'] = {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: true,
-        position: 'bottom'
-      },
-      datalabels: {
-        anchor: 'end',
-        align: 'end'
-      }
-    }
-  };
-  
-  public barChartData: ChartData<'bar'> = {
-    labels: [ 'Unidad 1', 'Unidad 2', 'Unidad 3', '2009', '2010', '2011', '2012'],
-    datasets: [
-      { data: [ 5, 9, 8, 1, 6, 5, 4 ], label: 'Cantidad temas' },
-    ]
-  };
-
-  public options_: ChartOptions ={
-      responsive: true,
-      maintainAspectRatio: true,
-      aspectRatio: 1.5,
-  }
-
-
-
-  // scatter
+  // DIFICULTAD VS CANTIDAD DE ACTIVIDADES POR UNIDAD
   public scatterChartOptions: ChartConfiguration['options'] = {
     plugins: {
       legend: {
@@ -102,14 +38,14 @@ public options: ChartOptions ={
     },
     responsive: true,
     scales: {
-      x: {min: 0, max: 10},
+      x: { min: 0, max: 10 },
       y: {
-        min: 0, max:10
+        min: 0, max: 10
       }
     },
-    
+
   };
-  public scatterChartLabels: string[] = [ 'Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running' ];
+  public scatterChartLabels: string[] = ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'];
 
   public scatterChartData: ChartData<'scatter'> = {
     labels: this.scatterChartLabels,
@@ -131,8 +67,95 @@ public options: ChartOptions ={
 
 
 
-  constructor(){}
+  constructor(private actividadService: ActividadService, private unidadService: UnidadService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.actividadService.listar().subscribe(tot => {
+      this.actividadesTotal = tot.length
+      this.actividadService.getCompletadas().subscribe(compl => {
+        this.actividadesCompletadas = compl.length
+        this.progresoDelCurso()
+      })
+    })
+    this.unidadService.listar().subscribe(data => {
+      this.unidades = data
+      this.porcentajePorUnidad()
+      this.temasPorUnidad()
+    })
+  }
+
+  progresoDelCurso() {
+    this.progresoDoughnutData = {
+      labels: ['Completas', 'Incompletas'],
+      datasets: [{ data: [this.actividadesCompletadas, this.actividadesTotal - this.actividadesCompletadas] }]
+    }
+  }
+
+
+  temasPorUnidad() {
+    this.cntTemasBarOptions = {
+      plugins: {
+        legend: { display: true, position: 'bottom' },
+        datalabels: {
+          anchor: 'end',
+          align: 'end'
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1.5,
+    };
+
+    let labels: any = []; let data: any = []
+    for (let i = 0; i < this.unidades.length; i++) {
+      labels[i] = 'Unidad ' + this.unidades[i].idUnidad;
+      this.unidadService.getTemas(this.unidades[i].idUnidad).subscribe(temas => {
+        data[i] = temas.length;
+        this.unidades[i].temas = temas
+        if (i == this.unidades.length-1) {
+          this.cntTemasBarData = {
+            labels: labels,
+            datasets: [{ data: data, label: 'Cantidad temas', backgroundColor: borderColors[6] }]
+          }
+        }
+      })
+    }
+
+  }
+
+
+  porcentajePorUnidad() {
+    let labels: any = []
+    let datas: any = []
+    for (let i = 0; i < this.unidades.length; i++) {
+      labels.push('Unidad ' + this.unidades[i].idUnidad);
+      this.unidadService.getActividades(this.unidades[i].idUnidad).subscribe(tot => {
+        this.unidadService.getActividadesCompletadas(this.unidades[i].idUnidad).subscribe(compl => {
+          datas[i] = compl.length == 0 ? 0 : compl.length * 100 / tot.length
+          if (i == this.unidades.length-1) {
+            this.progresoBarData = {
+              labels: labels,
+              datasets: [{
+                label: 'Porcentaje',
+                data: datas,
+                backgroundColor: backgroundColors,
+                borderColor: borderColors,
+                borderWidth: 1
+              }]
+            }
+          }
+        })
+      })
+    }
+    this.progresoBarOptions = {
+      scales: { x: { min: 0, max: 100 } },
+      plugins: { legend: { display: false } },
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: true,
+      aspectRatio: 1,
+    }
+  }
+
 
 }

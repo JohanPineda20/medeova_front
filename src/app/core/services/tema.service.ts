@@ -11,6 +11,11 @@ export class TemaService {
   uri = `${global.url}/tema`;
   constructor(private http:HttpClient) { }
 
+
+  public getSubtemas(id:any):Observable<any[]>{
+    return this.http.get<any>(`${this.uri}/${id}/subtemas`);
+  }
+
   public getActividades(id:any):Observable<any[]>{
     return this.http.get<any>(`${this.uri}/${id}/actividades`);
   }

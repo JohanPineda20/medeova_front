@@ -4,9 +4,10 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActividadService } from 'src/app/core/services/actividad.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  styleUrls: ['actividades.component.css'],
+  styleUrls: ['./actividades.component.css'],
   templateUrl: 'actividades.component.html',
   animations: [
     trigger('detailExpand', [
@@ -27,9 +28,13 @@ export class ActividadesAdminComponent implements AfterViewInit
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private actividadService: ActividadService) {}
+  constructor(private actividadService: ActividadService, private aRoute: ActivatedRoute) {}
 
   ngAfterViewInit() {
+    this.aRoute.params.subscribe((params:Params) =>{
+      if(params['id']) console.log("Sí hay ID");
+      
+    })
     this.actividadService.listar().subscribe(data => {  
       var actividades:  Data[] = []
       for(let i = 0; i<data.length; i++){

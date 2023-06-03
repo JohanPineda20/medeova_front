@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
+import {register} from 'swiper/element/bundle'; register();
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
 
@@ -29,20 +30,12 @@ import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiant
 import { NavAdminComponent } from './feature/admin/nav/nav-admin.component';
 
 //HOME
-import { HomeComponent } from './feature/estudiante/home/home.component';
-
-//ESTUDIANTE
 import { NavStudentComponent } from './feature/estudiante/nav/nav-student.component';
+import { HomeComponent } from './feature/estudiante/home/home.component';
 import { UnidadComponent } from './feature/estudiante/unidad/unidad.component'; 
 import { TemaComponent } from './feature/estudiante/tema/tema.component';
 import { ActividadComponent } from './feature/estudiante/actividad/actividad.component'; 
 import { ProfileComponent } from './feature/estudiante/profile/profile.component';
-
-
-// icons
-
-//Import all material modules
-import { ScriptsService } from './core/services/scripts.service';
 
 @NgModule({
   declarations: [
@@ -55,12 +48,11 @@ import { ScriptsService } from './core/services/scripts.service';
     TemaComponent,
     ActividadComponent,
     ProfileComponent,
-    DashboardAdminComponent,
+    ActividadesAdminComponent,
     NavAdminComponent,
-    EstudiantesAdminComponent,
+    DashboardAdminComponent,
     ContenidosAdminComponent,
-    ActividadesAdminComponent
-    
+    EstudiantesAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -78,9 +70,8 @@ import { ScriptsService } from './core/services/scripts.service';
     MatIconModule
   ],
   providers: [
-    ScriptsService,
     {
-      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true,      
+      provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true
     }
   ],
   bootstrap: [AppComponent],

@@ -20,28 +20,28 @@
             background: hsla(0, 0%, 100%, 0.55);
             backdrop-filter: blur(30px);
             ">
-          <div class="card-body p-5 shadow-5 text-center" > 
-          
+          <div class="card-body p-5 shadow-5 text-center">
             <h2 class="fw-bold mb-5">Inicio de sesión</h2>
             <form role="form" [formGroup]="loginForm">
               <span class="text-danger">{{message}}</span>
               <!-- Email input -->
               <div class="form-outline mb-4">
-                
+                <label class="form-label" for="form3Example3">Dirección de correo electronico</label>
                 <input formControlName="email" [ngClass]="{'error': isTouchedField(loginForm, 'email')}"
-                       type="email" id="form3Example3" class="form-control" placeholder="Correo"/>
+                       type="email" id="form3Example3" class="form-control" placeholder="Tu super correo"/>
                 <span class="text-danger">{{getErrorForm('email')}}</span>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example4">Contraseña</label>
                 <input formControlName="password" [ngClass]="{'error': isTouchedField(loginForm, 'password')}"
-                       type="password" id="form3Example4" class="form-control" placeholder="Contraseña"/>
+                       type="password" id="form3Example4" class="form-control" placeholder="Tu super contraseña"/>
                 <span class="text-danger">{{getErrorForm('password')}}</span>
               </div>
 
               <!-- Submit button -->
-              <button (click)="signIn()" type="submit" class="btn btn-danger btn-block mb-4">
+              <button (click)="signIn()" type="submit" class="btn btn-primary btn-block mb-4">
                 Iniciar sesión
               </button>
 

@@ -15,6 +15,10 @@ export class ActividadService {
     return this.http.get<any>(`${this.uri}`);
   }
 
+  public getCompletadas():Observable<any[]>{
+    return this.http.get<any>(`${this.uri}/completadas`);
+  }
+
   public encontrar(id:any):Observable<any>{
     return this.http.get<any>(`${this.uri}/${id}`);
   }

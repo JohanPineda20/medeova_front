@@ -37,18 +37,19 @@
                             <h4>Unidades y dificultades</h4>
                             <canvas baseChart class="chart" type="scatter" [data]="scatterChartData" [options]="scatterChartOptions"></canvas>
                             <br><h4>Cantidad de temas por unidad</h4>
-                            <canvas  baseChart class="chart" type="bar" [data]="barChartData" [options]="barChartOptions"></canvas>
+                            <canvas  baseChart class="chart" type="bar" [data]="cntTemasBarData" [options]="cntTemasBarOptions"></canvas>
                         </div>
                     </div>
                     <div class="col-md-5 estadisticas-box">
                         <div class="">
                             <div>
                                 <h4>Porcentaje del curso</h4>
-                                <canvas baseChart class="chart" type="doughnut" [data]="doughnutChartData"></canvas>
+                                <canvas baseChart class="chart" type="doughnut" [data]="progresoDoughnutData"></canvas>
                             </div><br>
                             <div>
                                 <h4>Pocerntaje por unidades</h4>
-                                <canvas baseChart class="chart" type="bar" [data]="data" [options]="options" ></canvas></div>
+                                <canvas baseChart class="chart" type="bar" [data]="progresoBarData" [options]="progresoBarOptions" ></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ export class TemaComponent
   tema: any = ''
   comentarios: any = []
   actividades: any = []
+  subtemas: any = []
   usuario = {
     "codigo": "1151910",
      "perNom": "PAULA",
@@ -29,11 +30,13 @@ export class TemaComponent
 
   constructor(private temaService: TemaService, private unidadService: UnidadService, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) 
   {   
-    this.unidadService.encontrar(this.aRouter.snapshot.paramMap.get('idUnidad')).subscribe(data => this.unidad = data)
     this.temaService.encontrar(this.aRouter.snapshot.paramMap.get('idTema')).subscribe(data => {
-      this.tema = data
       this.temaService.getComentarios(data.idTema).subscribe(data => this.comentarios = data)
       this.temaService.getActividades(data.idTema).subscribe(data => this.actividades = data)
+      this.temaService.getSubtemas(data.idTema).subscribe(sub=> {this.subtemas = sub; console.log(sub);}
+      )  
+      this.tema = data; this.unidad = data.unidad;
+      
     })
   }
 
