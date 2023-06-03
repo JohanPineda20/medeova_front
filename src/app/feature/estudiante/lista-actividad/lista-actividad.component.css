@@ -1,0 +1,83 @@
+.subtema-title{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    color: rgb(20, 20, 20);
+    background: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+.container-tema{
+  background-color: #242424; height: fit-content;
+}
+.min-container{
+  min-height: 1200px; margin-top: 2em;
+}
+.container-content{
+    position: absolute;
+    width: 80%;
+    height: auto;
+    top: 30%;
+    left:10%;
+    right: 10%;
+    background: #FDFDFD;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+.content{
+  padding: 2em 5em 2em 5em;
+
+}
+.titulo{
+    font-size: 2em;
+  font-weight: bolder;
+  font-family: cursive;
+}
+hr{
+  color: #a7a7a7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.row img{
+border-radius: 10%;
+overflow: hidden;
+max-width: 400px;
+max-height: 400px;
+}
+
+.justify{
+    font-size: large;
+    text-align: justify;
+    padding-left: 8em;
+    padding-right: 8em;
+}
+
+.center{
+  text-align: center;
+  align-items: center;
+}
+
+.titulo-comennt{
+  font-size: larger;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.div-img{
+    text-align: center;
+    align-items: center;
+}
+.container-actividad{
+    border-radius: 10px;
+    border: 1px solid #d3d3d3;
+    box-shadow: 0 0 10px rgba(88, 88, 88, 0.5);
+    padding: 15px;
+  }
+
+  .btn-danger{
+    float: right;
+    max-width: 200px;
+  }
+  .subtitle {
+    font-size: 18px;
+    font-weight: bolder;
+  }

@@ -1,2 +1,66 @@
-<app-nav-student></app-nav-student>
-<p>lista-actividad works!</p>
+<header>
+    <app-nav-student></app-nav-student>
+</header>
+
+<body>
+    <div class="container-fluid">
+        <div class="row mt-4">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div class="card shadow mb-4 "  >
+                    <div class="card-body p-4 ">    
+                        <h3 class="text-center titulo">Lista de actividades</h3>
+                        <br>
+                        <p class="justify">Hemos recopilado una variedad de actividades emocionantes y estimulantes diseñadas para evaluar tu conocimiento
+                            y comprensión del tema. Ya sea que estés estudiando en casa, en la escuela o en un entorno de aprendizaje 
+                            profesional, nuestras actividades están diseñadas para desafiarte y ayudarte a mejorar tus habilidades en 
+                            este tema específico. Aquí encontrarás una amplia gama de actividades interactivas, desde cuestionarios y 
+                            pruebas de opción múltiple sopas de letra y ejercicios de resolución de problemas. Nuestro objetivo
+                             es ofrecerte una experiencia educativa integral y entretenida que te permita aplicar y demostrar tu dominio del tema</p>
+                        <div class="div-img p-2" >
+                            <img id="ufps-logo"  src="../../../../assets/actividades.jpg" alt="actividades">
+                        </div>
+                        <div class="card-body ps-4 pe-4 row"  *ngFor="let a of actividades">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <div class="container-actividad ">
+                                    <p class="subtitle">{{a.titulo}}</p>
+                                    <hr>
+                                    <br>
+                                    <div class="row">
+                                        <p class="text col-6"><strong>Objetivo: </strong>{{a.objetivo}}</p>
+                                        <div class="col-2"></div>
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-danger " routerLink="/actividad/{{a.idActividad}}">Ir a la actividad</button>
+                                        </div>
+                                        
+                                        <div class="col-2">
+                                            <button type="button" class="btn btn-danger " routerLink="/actividad/{{a.idActividad}}"> <i class="fa-sharp fa-solid fa-check-double"></i> Completada</button>
+                                        </div>
+                                        
+                                        <p class="text col-6 mt-4"><strong>Instrucciones: </strong>{{a.instrucciones}}</p>
+                                    </div>
+                                    <br>    
+                                    
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>    
+    <div class="container-fluid mb-4">
+        <div class="row mt-4 ">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                
+                    
+                
+            </div>
+        </div>
+        
+    </div>
+                                      
+
+</body>
