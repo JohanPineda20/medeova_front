@@ -93,7 +93,7 @@
               <div class="card shadow mb-4" style="min-height: 300px;">
                   
                   <div class="card-header py-3 text-center titulo-card">
-                      <a class="m-0 font-weight-bold titulo-card text-decoration-none" [routerLink]="['/unidad/{{i.idUnidad}}']" style="font-size: 2em;">Unidad {{index+1}}: {{i.titulo}} </a>
+                      <a class="m-0 font-weight-bold titulo-card text-decoration-none" [routerLink]="['/unidad/', i.idUnidad]" style="font-size: 2em;">Unidad {{index+1}}: {{i.titulo}} </a>
                   </div>
                   <div class="card-body text-center" *ngFor="let j of i.temas; let idx = index">
                       {{idx+1}}: {{j.titulo}}
