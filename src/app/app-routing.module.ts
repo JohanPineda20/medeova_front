@@ -12,6 +12,7 @@ import { ActividadesAdminComponent } from './feature/admin/actividades/actividad
 import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component'
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component'
 import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component'
+import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,6 +23,16 @@ const routes: Routes = [
   { path: 'unidad/:idUnidad', component: UnidadComponent },
   { path: 'unidad/:idUnidad/tema/:idTema', component: TemaComponent },
   { path: 'actividad/:idActividad', component: ActividadComponent },
+  { path: '',component: LoginComponent},
+  { path: 'login',component: LoginComponent},
+  { path: 'singup',component: RegisterComponent},
+  { path: 'home',component: HomeComponent},
+  { path: 'profile',component: ProfileComponent},
+  { path: 'unidad/:idUnidad',component: UnidadComponent},
+  { path: 'unidad/:idUnidad/tema/:idTema',component: TemaComponent},
+  { path: 'actividad/:idActividad',component: ActividadComponent},
+  { path: 'actividades',component: ListaActividadComponent},
+  
   //{path: 'admin',component: AdminComponent},
   //ADMIN
   { path: 'dashboard', component: DashboardAdminComponent },

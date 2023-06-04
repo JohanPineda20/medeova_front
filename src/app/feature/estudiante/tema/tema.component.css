@@ -126,3 +126,39 @@ transform: rotate(30deg);
   
   margin-bottom: 2em;
 }
+.input{
+  max-width: 80%;
+}
+textarea {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#date{
+  font-size: small;
+  color: #a7a7a7;
+}
+#name{
+  font-size: small;
+  font-style: italic;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#comment{
+  font-size: medium;
+  color: #444444;
+  font-style: oblique;
+}
+#comentario-container{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  margin-bottom: 2em;
+  box-shadow: 0 0 4px rgba(88, 88, 88, 0.5);
+}
+
+.titulo-comennt{
+  font-size: larger;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

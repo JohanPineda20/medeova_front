@@ -22,3 +22,33 @@ a{
   border-right: 6px solid transparent;
   border-top: 10px solid #ffffff;
 }
+
+#ufps-logo{
+  width: 250px
+}
+.presentacion{
+  font-size: 18px;
+  text-align: justify;
+}
+.div-presentacion{
+  margin-right: 50px; margin-top: 50px;
+}
+.card-minh{
+  min-height: 300px;
+}
+#temas{
+  margin-top: 4em;
+}
+.temas-msj{
+  margin: 2em; font-size: 18px;
+}
+h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+.container-tema{
+  background-color: #242424; height: fit-content;
+}
+.min-container{
+  min-height: 1200px; margin-top: 2em;
+}

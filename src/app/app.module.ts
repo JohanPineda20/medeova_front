@@ -39,6 +39,7 @@ import { UnidadComponent } from './feature/estudiante/unidad/unidad.component';
 import { TemaComponent } from './feature/estudiante/tema/tema.component';
 import { ActividadComponent } from './feature/estudiante/actividad/actividad.component'; 
 import { ProfileComponent } from './feature/estudiante/profile/profile.component';
+import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ProfileComponent } from './feature/estudiante/profile/profile.component
     DashboardAdminComponent,
     ContenidosAdminComponent,
     EstudiantesAdminComponent,
-    ActividadAdminComponent
+    ActividadAdminComponent,
+    ListaActividadComponent
   ],
   imports: [
     BrowserModule,

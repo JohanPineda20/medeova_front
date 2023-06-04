@@ -68,20 +68,25 @@
 
         <!-- COMENTARIOS -->
         <!-- CREAR COMENTARIO -->
-        <div class="comentario-form">
-            <div class="form-group">
-                <textarea id="commentInput" class="form-control" rows="5"></textarea>
+        <div class="comentario-form center">
+            <div class="form-group text-center align-items-center center">
+                <textarea id="commentInput" class="form-control input" rows="5"></textarea>
             </div>
-            <button (click)="addComentario()" class="btn btn-danger">Enviar comentario</button>
+            <div class="mt-4">
+                <button (click)="addComentario()" class="btn btn-danger">Enviar comentario</button>
+            </div>
+            
         </div>
         
         <!-- MOSTRAR COMENTARIOS -->
         <div class="comentario-box">
           <div id="comment-section">
-            <h3>Comments:</h3>
+            <hr>
+            <h3 class="titulo-comennt ms-3">Comments:</h3>
             <div id="comentario-container" class="form-control" *ngFor="let c of comentarios">
-                <strong>{{c.usuario.perNom}} {{c.usuario.perApell}}</strong> <p>{{c.createdAt}}</p>
-                <p>{{c.comentario}}</p>
+                <i class="fa-solid fa-user me-2"></i> 
+                <strong id="name">{{c.usuario.perNom}} {{c.usuario.perApell}}</strong> <p id="date">{{c.createdAt}}</p>
+                <p id="comment">{{c.comentario}}</p>
             </div>
           </div>
         </div>          

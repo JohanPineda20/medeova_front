@@ -22,10 +22,10 @@
               <!-- Basic Card Example -->
               <div class="card shadow mb-4 "  >
                   <div class="card-body p-4 d-flex flex-row">
-                      <div style="margin-right: 50px; margin-top: 50px;" class="p-2">
-                          <img style="width: 250px"  src="../../../../assets/Logo_de_UFPS.png" alt="logo-ufps">
+                      <div class="div-presentacion p-2" >
+                          <img id="ufps-logo"  src="../../../../assets/Logo_de_UFPS.png" alt="logo-ufps">
                       </div>
-                      <p class="p-2" style="font-size: 18px;"> {{mensajes?.presentacion}}</p>
+                      <p class="p-2 presentacion" > {{mensajes?.presentacion}}</p>
                   </div>                
               </div>
           </div>
@@ -52,9 +52,9 @@
   </div>
   <!-- /.container-fluid 1-->
   
-  <div class="container-fluid"  style="min-height: 1200px; margin-top: 2em;" >
+  <div class="container-fluid min-container"   >
           
-      <div class="row" style="background-color: #242424; height: fit-content;" > 
+      <div class="row container-tema"  > 
           <div  style="color: white;">
   
   
@@ -63,11 +63,11 @@
                       <img src="../../../../assets/Rectangle 10.png" alt="">
                   </div>
                   <div class="" >
-                      <h2 class="mt-4 ms-2" style="font-size: 40px;">Temas</h2>
+                      <h2 class="mt-4 ms-2" >Temas</h2>
                   </div>
               </div>
               
-              <div class="text-center " style="margin: 2em; font-size: 18px;">
+              <div class="text-center temas-msj" >
                   <p>{{mensajes?.temas}}</p>
               </div>
              <!-- Button para desplegar el container-fluid 2-->
@@ -87,10 +87,10 @@
           </div>
           
       </div>
-      <div class="row" style="margin-top: 4em;" id="temas">
+      <div class="row"  id="temas">
           <div class="col-lg-3" *ngFor="let i of unidades; let index = index">
               <!-- Basic Card Example -->
-              <div class="card shadow mb-4" style="min-height: 300px;">
+              <div class="card shadow mb-4 card-minh">
                   
                   <div class="card-header py-3 text-center titulo-card">
                       <a class="m-0 font-weight-bold titulo-card text-decoration-none" [routerLink]="['/unidad/', i.idUnidad]" style="font-size: 2em;">Unidad {{index+1}}: {{i.titulo}} </a>
