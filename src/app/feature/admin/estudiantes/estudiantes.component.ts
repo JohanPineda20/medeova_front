@@ -24,7 +24,7 @@ export class EstudiantesAdminComponent implements AfterViewInit
   dataSource: MatTableDataSource<any>;
   columnsToDisplay : string[] = ['Codigo', 'Nombre', 'Email', 'Progreso'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];  
-  expandedElement: Data | null;
+  expandedElement: any | null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -33,7 +33,7 @@ export class EstudiantesAdminComponent implements AfterViewInit
 
   ngAfterViewInit() {
     this.estudianteService.listar().subscribe(data => {  
-      var filas:  Data[] = []
+      var filas:  any[] = []
       for(let i = 0; i<data.length; i++){
         var est = data[i]
         filas.push({
@@ -72,13 +72,4 @@ export class EstudiantesAdminComponent implements AfterViewInit
     if (this.dataSource.paginator)
       this.dataSource.paginator.firstPage();
   } 
-}
-
-export interface Data {
-  estudiante: any;
-  Codigo: number;
-  Nombre: String;
-  Email: String;
-  Progreso: String;
-  Unidades: any[];
 }

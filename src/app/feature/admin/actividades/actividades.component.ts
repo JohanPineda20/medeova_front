@@ -23,7 +23,7 @@ export class ActividadesAdminComponent implements AfterViewInit
   dataSource: MatTableDataSource<any>;
   columnsToDisplay : string[] = ['ID', 'Titulo', 'Tipo', 'Unidad', 'Tema', 'Progreso', 'Dificultad'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];  
-  expandedElement: Data | null;
+  expandedElement: any | null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -36,7 +36,7 @@ export class ActividadesAdminComponent implements AfterViewInit
       
     })
     this.actividadService.listar().subscribe(data => {  
-      var actividades:  Data[] = []
+      var actividades:  any[] = []
       for(let i = 0; i<data.length; i++){
         var act = data[i]
         actividades.push({
@@ -52,9 +52,6 @@ export class ActividadesAdminComponent implements AfterViewInit
         this.actividadService.getPorcentaje(act.idActividad).subscribe(dat => {actividades[i].Progreso = dat+'%'; this.promedio+=dat; if(i == data.length-1) this.promedio/=i+1})
         this.actividadService.getPromedioDificultad(act.idActividad).subscribe(data => actividades[i].Dificultad = data != null ? data: 'Indefinido')
       }
-      console.log(this.promedio, data.length);
-      
-      
       this.dataSource = new MatTableDataSource(actividades)
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -72,15 +69,4 @@ export class ActividadesAdminComponent implements AfterViewInit
     if (this.dataSource.paginator)
       this.dataSource.paginator.firstPage();
   } 
-}
-
-export interface Data {
-  actividad: any;
-  ID: number;
-  Tipo: String;
-  Titulo: String;
-  Unidad: String;
-  Tema: string;
-  Progreso: string;
-  Dificultad: number;
 }

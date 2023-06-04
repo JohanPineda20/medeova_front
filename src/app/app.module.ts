@@ -16,6 +16,8 @@ import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon'
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //AUTH
@@ -28,6 +30,7 @@ import { ActividadesAdminComponent } from './feature/admin/actividades/actividad
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component';
 import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component';
 import { NavAdminComponent } from './feature/admin/nav/nav-admin.component';
+import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component';
 
 //HOME
 import { NavStudentComponent } from './feature/estudiante/nav/nav-student.component';
@@ -52,7 +55,8 @@ import { ProfileComponent } from './feature/estudiante/profile/profile.component
     NavAdminComponent,
     DashboardAdminComponent,
     ContenidosAdminComponent,
-    EstudiantesAdminComponent
+    EstudiantesAdminComponent,
+    ActividadAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ import { ProfileComponent } from './feature/estudiante/profile/profile.component
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [
     {

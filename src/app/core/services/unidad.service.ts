@@ -24,6 +24,10 @@ export class UnidadService {
     return this.http.get<any>(`${this.uri}/${id}/actividades/completadas`);
   }
 
+  public getpromedioDificultad(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/actividades/avg`);
+  }
+
   public listar():Observable<any[]>{
     return this.http.get<any>(`${this.uri}`);
   }

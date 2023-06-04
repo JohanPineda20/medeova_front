@@ -12,7 +12,7 @@
                     <div class="box box1">
                         <i class="uil uil-thumbs-up"></i>
                         <span class="text">Total Estudiantes</span>
-                        <span class="number">50,120</span>
+                        <span class="number">{{estudiantes.length}}</span>
                     </div>
                     <div class="box box2">
                         <i class="uil uil-comments"></i>
@@ -22,7 +22,7 @@
                     <div class="box box3">
                         <i class="uil uil-share"></i>
                         <span class="text">Total Actividades</span>
-                        <span class="number">10,120</span>
+                        <span class="number">{{actividadesTotal}}</span>
                     </div>
                 </div>
             </div>
@@ -32,22 +32,22 @@
                     <span class="text">Estadisticas principales</span>
                 </div>
                 <div class="row">
-                    <div class="col-md-7">
+                    <div class="col-md-8">
                         <div class="estadisticas-box">
                             <h4>Unidades y dificultades</h4>
-                            <canvas baseChart class="chart" type="scatter" [data]="scatterChartData" [options]="scatterChartOptions"></canvas>
+                            <canvas id="dificultad" baseChart class="chart" type="scatter" [data]="dificultadScatterData" [options]="dificultadScatterOptions"></canvas>
                             <br><h4>Cantidad de temas por unidad</h4>
                             <canvas  baseChart class="chart" type="bar" [data]="cntTemasBarData" [options]="cntTemasBarOptions"></canvas>
                         </div>
                     </div>
-                    <div class="col-md-5 estadisticas-box">
-                        <div class="">
+                    <div class="col-md-4 estadisticas-box">
+                        <div>
                             <div>
                                 <h4>Porcentaje del curso</h4>
                                 <canvas baseChart class="chart" type="doughnut" [data]="progresoDoughnutData"></canvas>
                             </div><br>
                             <div>
-                                <h4>Pocerntaje por unidades</h4>
+                                <h4>Progreso por unidades</h4>
                                 <canvas baseChart class="chart" type="bar" [data]="progresoBarData" [options]="progresoBarOptions" ></canvas>
                             </div>
                         </div>

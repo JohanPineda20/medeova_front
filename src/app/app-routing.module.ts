@@ -11,23 +11,26 @@ import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-adm
 import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component'
 import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component'
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component'
+import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component'
 
 const routes: Routes = [
-  {path: '',component: LoginComponent},
-  {path: 'login',component: LoginComponent},
-  {path: 'singup',component: RegisterComponent},
-  {path: 'home',component: HomeComponent},
-  {path: 'profile',component: ProfileComponent},
-  {path: 'unidad/:idUnidad',component: UnidadComponent},
-  {path: 'unidad/:idUnidad/tema/:idTema',component: TemaComponent},
-  {path: 'actividad/:idActividad',component: ActividadComponent},
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'singup', component: RegisterComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'unidad/:idUnidad', component: UnidadComponent },
+  { path: 'unidad/:idUnidad/tema/:idTema', component: TemaComponent },
+  { path: 'actividad/:idActividad', component: ActividadComponent },
   //{path: 'admin',component: AdminComponent},
-    //ADMIN
-    {path: 'dashboard', component: DashboardAdminComponent},
-    {path: 'actividades', component: ActividadesAdminComponent},
-    {path: 'estudiantes', component: EstudiantesAdminComponent},
-    {path: 'contenidos', component: ContenidosAdminComponent}  
-  
+  //ADMIN
+  { path: 'dashboard', component: DashboardAdminComponent },
+  { path: 'actividades', component: ActividadesAdminComponent },
+  { path: 'estudiantes', component: EstudiantesAdminComponent },
+  { path: 'contenidos', component: ContenidosAdminComponent },
+  {path: 'admin/actividad/:idActividad',component: ActividadAdminComponent},
+  {path: 'admin/actividad',component: ActividadAdminComponent}
+
 ];
 
 @NgModule({
