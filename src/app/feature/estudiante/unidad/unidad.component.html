@@ -8,13 +8,14 @@
 </header>
 
 <!-- ASIDE MENU BAR -->
-<aside style="box-shadow:none ">
+<aside style="box-shadow:none " class="mt-4">
     <ul *ngFor="let t of unidad.temas; let i=index" style="margin-bottom: 0px;">
-        <li  class="list-container row " (click)="changeTema(i)">
+        <li  class=" row " (click)="changeTema(i)">
             <img class="col-md-2 list-img" src="{{t.img}}">
-            <p class="col-md-8">{{t.titulo}}</p>
-            <span><i class="col-md-2 fa-sharp fa-solid fa-play fa-lg"></i></span>
+            <p class="col-md-8 mt-4 titulo">{{t.titulo}}</p>
+            <span class="col-md-1 ms-4 mt-4"><i class=" fa-sharp fa-solid fa-play fa-lg" style="color: #aa1619;"></i></span><hr>  
         </li>
+          
     </ul>     
 </aside>
 
