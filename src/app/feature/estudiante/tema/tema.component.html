@@ -21,7 +21,7 @@
         <!-- SWIPER SUBTEMAS ACTIVIDADES -->
         <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true"  keyboard="true" >
             <!-- SLIDES SUBTEMAS Y CONTENIDOS MULTIMEDIA -->
-            <swiper-slide *ngFor="let i of subtemas">
+            <swiper-slide *ngFor="let i of subtemas; let index = index">
                 <div class="content">
                     <div class="title row">
                         <img class="col-md-1" src="{{i.img}}">
@@ -29,13 +29,13 @@
                     </div>
                     <div class="justify">
                         <div class="subtitle"><p>{{i.descripcion}}</p></div>
-                        <div class="text"><p>{{i.contenido}}</p></div>
+                        <div class="text"><p id="contenido-{{index}}" [innerHTML]="i.contenido">{{i.contenido}}</p></div>
                     </div>
                     
-                    <div class="row row-multimedia text-center align-items-center">
+                    <div class="row row-multimedia text-center justify-content-center">
                         <div class="container-multimedia col-md-5 " *ngFor="let m of i.multimedia">
                             <div class="align-items-center center">
-                                <p class="subtitle">{{m.titulo}}</p>
+                                <a class="subtitle" href="{{m.url}}" target="_blank"><p class="subtitle">{{m.titulo}}</p></a>
                                 <iframe class="row-iframe" [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                 <div class="row justify-content-center align-items-center">
                     <div class="content">
                         <h1 class="titulo text-gray-800">Actividades propuestas</h1>
-                        <p class="justify">hemos recopilado una variedad de actividades emocionantes y estimulantes diseñadas para evaluar tu conocimiento
+                        <p class="justify">Hemos recopilado una variedad de actividades emocionantes y estimulantes diseñadas para evaluar tu conocimiento
                              y comprensión del tema. Ya sea que estés estudiando en casa, en la escuela o en un entorno de aprendizaje 
                              profesional, nuestras actividades están diseñadas para desafiarte y ayudarte a mejorar tus habilidades en 
                              este tema específico. Aquí encontrarás una amplia gama de actividades interactivas, desde cuestionarios y 

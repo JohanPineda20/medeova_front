@@ -31,8 +31,9 @@ swiper-container {
   }
 
   swiper-slide .subtitle {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bolder;
+    color: black;
   }
 
   swiper-slide .text {

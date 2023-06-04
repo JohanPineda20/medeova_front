@@ -33,10 +33,12 @@ export class TemaComponent
     this.temaService.encontrar(this.aRouter.snapshot.paramMap.get('idTema')).subscribe(data => {
       this.temaService.getComentarios(data.idTema).subscribe(data => this.comentarios = data)
       this.temaService.getActividades(data.idTema).subscribe(data => this.actividades = data)
-      this.temaService.getSubtemas(data.idTema).subscribe(sub=> {this.subtemas = sub; console.log(sub);}
-      )  
-      this.tema = data; this.unidad = data.unidad;
-      
+      this.temaService.getSubtemas(data.idTema).subscribe(sub=>{        
+        for(let i = 0; i<sub.length; i++)
+          sub[i].contenido = sub[i].contenido.replace(/\r\n/g, '<br>')
+        this.subtemas = sub        
+      })
+      this.tema = data; this.unidad = data.unidad;      
     })
   }
 
