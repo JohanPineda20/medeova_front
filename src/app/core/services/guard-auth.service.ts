@@ -36,8 +36,19 @@ export class GuardAuthService {
    * Guardian que permite acceder a una pagina si se encuentra logueado y el rol es admin
    */
   public canActiveWithRolAdmin(): boolean {
-    if (this.tokenService.getInfoToken().rol != Roles.ADMIN && !this.canActiveWithAuth()) {//si no esta autenticado y el rol no es admin devuelve false
-      this.router.navigateByUrl("");
+    const userRoles = this.tokenService.getInfoToken().rol.map((r) => r.authority);
+  
+    if (!this.canActiveWithAuth || !userRoles.includes("ADMIN")) {
+      this.router.navigateByUrl(this.router.url);
+      return false;
+    }
+    
+    return true;
+  }
+
+  public canActiveWithRolUser(): boolean {
+    if (this.tokenService.getInfoToken().rol.map((r) => r.authority).includes("USER")) {//si no esta autenticado y el rol no es admin devuelve false
+      this.router.navigateByUrl(this.router.url);
       return false;
     }
     return true;

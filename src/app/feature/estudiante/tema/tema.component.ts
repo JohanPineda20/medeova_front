@@ -1,9 +1,12 @@
+import { ProfileService } from './../../../core/services/profile.service';
 import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TemaService } from 'src/app/core/services/tema.service';
 import { UnidadService } from 'src/app/core/services/unidad.service';
 import * as $ from 'jquery'
+import { TokenService } from 'src/app/core/services/token.service';
+import { EstudianteDto } from 'src/app/core/dto/estudianteDto';
 
 @Component({
   selector: 'app-tema',
@@ -16,25 +19,22 @@ export class TemaComponent
   tema: any = ''
   comentarios: any = []
   actividades: any = []
-  usuario = {
-    "codigo": "1151910",
-     "perNom": "PAULA",
-     "sdoNom": "VALENTINA",
-     "perApell": "RICO",
-     "sdoApell": "LINDARTE",
-     "email": "paulavalentinarlin@ufps.edu.co",
-     "clave": "12345"
-  }
+  subtemas: any = []
+  usuario: EstudianteDto
   
 
-  constructor(private temaService: TemaService, private unidadService: UnidadService, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) 
+  constructor(private temaService: TemaService, private unidadService: UnidadService, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer, private tokenService: TokenService, private profileService: ProfileService) 
   {   
-    this.unidadService.encontrar(this.aRouter.snapshot.paramMap.get('idUnidad')).subscribe(data => this.unidad = data)
     this.temaService.encontrar(this.aRouter.snapshot.paramMap.get('idTema')).subscribe(data => {
-      this.tema = data
       this.temaService.getComentarios(data.idTema).subscribe(data => this.comentarios = data)
       this.temaService.getActividades(data.idTema).subscribe(data => this.actividades = data)
+      this.temaService.getSubtemas(data.idTema).subscribe(sub => {this.subtemas = sub; console.log(sub);})
+      this.tema = data; 
+      this.unidad = data.unidad;
     })
+    this.profileService.getEstudiante(this.tokenService.getInfoToken().id).subscribe(response => {
+      this.usuario = response;
+    });
   }
 
   addComentario(){

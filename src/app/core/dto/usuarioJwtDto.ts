@@ -1,8 +1,9 @@
+import { Rol } from "./Rol";
+
 export interface UsuarioJwtDto {
   id: string;
   sub: string;
-  email: string;
-  rol: string;
+  rol: Rol[];
   iat: number;
   exp: number;
 }

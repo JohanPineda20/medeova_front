@@ -2,15 +2,15 @@
     <app-nav-student></app-nav-student>
     <!-- PAGE HEADING -->
     <div class="d-sm-flex align-items-center  mb-4" style="background-color: #aa1619;">
-        <img class="mx-auto" src="{{unidad.img}}">
-        <h3 class="ms-3  float-left  "style="color: white; font-size: 2.5em; ">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h3>
+        <img class="img-semi-redonda"  src="{{unidad.img}}">
+        <h3 class="ms-3  float-left titulo-unidad  ">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h3>
     </div>  
 </header>
 
 <!-- ASIDE MENU BAR -->
 <aside style="box-shadow:none ">
     <ul *ngFor="let t of unidad.temas; let i=index" style="margin-bottom: 0px;">
-        <li  class="list-container row" (click)="changeTema(i)" style="background-color: white; border: 1px solid #d8d8d8;" >
+        <li  class="list-container row " (click)="changeTema(i)">
             <img class="col-md-2 list-img" src="{{t.img}}">
             <p class="col-md-8">{{t.titulo}}</p>
             <span><i class="col-md-2 fa-sharp fa-solid fa-play fa-lg"></i></span>

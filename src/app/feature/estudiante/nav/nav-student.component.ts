@@ -10,9 +10,10 @@ import { TokenService } from 'src/app/core/services/token.service';
 export class NavStudentComponent {
 
   public username: string
-
+  public rol: string[]
   constructor(private router:Router, private tokenService:TokenService){
-    this.username=this.tokenService.getInfoToken().sub
+    this.username=this.tokenService.getInfoToken().sub;
+    this.rol = this.tokenService.getInfoToken().rol.map((r) => r.authority);
   }
 
   logout(): void {

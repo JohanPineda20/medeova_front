@@ -26,7 +26,9 @@ export class TokenService {
 
 
   public getInfoToken(): UsuarioJwtDto {
-    let infoToken = jwt_decode(getCookie("token"));
+    let infoToken;
+    if(this.getToken())
+      infoToken = jwt_decode(getCookie("token"));
     return <UsuarioJwtDto>infoToken;
   }
 

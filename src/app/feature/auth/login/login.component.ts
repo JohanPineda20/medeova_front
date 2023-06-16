@@ -16,7 +16,6 @@ import Swal from "sweetalert2";
 })
 export class LoginComponent extends AppBaseComponent {
 
-
   /**
    * Formulario reactivo de login
    */
@@ -33,10 +32,15 @@ export class LoginComponent extends AppBaseComponent {
   }
 
 
+  public login(): void{
+    this.authService.signIn(this.loginForm.value).subscribe(response => {
+console.log(response);
+    });
+
+  }
+
   public async signIn(): Promise<void> {
-
     if (this.loginForm.valid) {
-
       let dtoLogin: AuthLoginRequestDto;
       let email = this.loginForm.get('email').value;
       let password = this.loginForm.get('password').value;
@@ -46,7 +50,13 @@ export class LoginComponent extends AppBaseComponent {
       }
 
       this.authService.signIn(dtoLogin).subscribe(response => {
-      this.router.navigateByUrl("/home");
+        if(this.tokenService.getInfoToken().rol.some((r) => r.authority === "USER")){
+          this.router.navigateByUrl("/home");
+        }
+        else{
+          this.router.navigateByUrl("/dashboard");
+        }
+      
       },
       error => {
         this.message = error.error

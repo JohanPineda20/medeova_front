@@ -1,0 +1,59 @@
+<app-nav-admin></app-nav-admin>
+
+<body>
+    <section class="dashboard">
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class="uil uil-thumbs-up"></i>
+                        <span class="text">Total Estudiantes</span>
+                        <span class="number">{{estudiantes.length}}</span>
+                    </div>
+                    <div class="box box2">
+                        <i class="uil uil-comments"></i>
+                        <span class="text">Comments</span>
+                        <span class="number">20,120</span>
+                    </div>
+                    <div class="box box3">
+                        <i class="uil uil-share"></i>
+                        <span class="text">Total Actividades</span>
+                        <span class="number">{{actividadesTotal}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="estadisticas">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Estadisticas principales</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="estadisticas-box">
+                            <h4>Unidades y dificultades</h4>
+                            <canvas id="dificultad" baseChart class="chart" type="scatter" [data]="dificultadScatterData" [options]="dificultadScatterOptions"></canvas>
+                            <br><h4>Cantidad de temas por unidad</h4>
+                            <canvas  baseChart class="chart" type="bar" [data]="cntTemasBarData" [options]="cntTemasBarOptions"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-4 estadisticas-box">
+                        <div>
+                            <div>
+                                <h4>Porcentaje del curso</h4>
+                                <canvas baseChart class="chart" type="doughnut" [data]="progresoDoughnutData"></canvas>
+                            </div><br>
+                            <div>
+                                <h4>Progreso por unidades</h4>
+                                <canvas baseChart class="chart" type="bar" [data]="progresoBarData" [options]="progresoBarOptions" ></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>

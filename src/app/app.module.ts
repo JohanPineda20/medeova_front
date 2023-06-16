@@ -6,12 +6,31 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import {register} from 'swiper/element/bundle'; register();
+import { CommonModule } from '@angular/common';
+import { NgChartsModule } from 'ng2-charts';
+
+//ANGULAR MATERIAL
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatIconModule } from '@angular/material/icon'
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //AUTH
 import { LoginComponent } from './feature/auth/login/login.component';
 import { RegisterComponent } from './feature/auth/register/register.component';
 
 //ADMIN
+import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-admin.component';
+import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component';
+import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component';
+import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component';
+import { NavAdminComponent } from './feature/admin/nav/nav-admin.component';
+import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component';
 
 //HOME
 import { NavStudentComponent } from './feature/estudiante/nav/nav-student.component';
@@ -20,6 +39,7 @@ import { UnidadComponent } from './feature/estudiante/unidad/unidad.component';
 import { TemaComponent } from './feature/estudiante/tema/tema.component';
 import { ActividadComponent } from './feature/estudiante/actividad/actividad.component'; 
 import { ProfileComponent } from './feature/estudiante/profile/profile.component';
+import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component';
 
 @NgModule({
   declarations: [
@@ -31,13 +51,31 @@ import { ProfileComponent } from './feature/estudiante/profile/profile.component
     UnidadComponent,
     TemaComponent,
     ActividadComponent,
-    ProfileComponent
+    ProfileComponent,
+    ActividadesAdminComponent,
+    NavAdminComponent,
+    DashboardAdminComponent,
+    ContenidosAdminComponent,
+    EstudiantesAdminComponent,
+    ActividadAdminComponent,
+    ListaActividadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    NgChartsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [
     {

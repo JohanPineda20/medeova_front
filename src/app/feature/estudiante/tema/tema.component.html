@@ -5,31 +5,39 @@
         <div>
             <h1 class="h3 mb-0 text-gray-800">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h1>
         </div>
-        <div class="row">
-            <img class="col-md-1" src="{{tema.img}}">
-            <h1 class="col-md 8 h3 mb-0 text-gray-800">{{tema.titulo}}</h1>            
+        <div class="row row-gutter-0" > 
+            <img class="col-md-1" src="{{tema.img}}" >
+            <h3 class="col-md 8 h3 mb-2 mt-3 text-gray-800">{{tema.titulo}}</h3>            
         </div>
         
     </div>    
 </header>
 
 <body>
+    <div>
+        <img class="imagen-rotada" src="../../../../assets/logoufps.png" alt="ufps">
+    </div>
     <div class="container-content">
         <!-- SWIPER SUBTEMAS ACTIVIDADES -->
         <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true"  keyboard="true" >
             <!-- SLIDES SUBTEMAS Y CONTENIDOS MULTIMEDIA -->
-            <swiper-slide *ngFor="let i of tema.subtemas">
-                <div class="title row">
-                    <img class="col-md-1" src="{{i.img}}">
-                    <div class="col-md-11">{{i.titulo}}</div>                    
-                </div>
-                <div class="subtitle"><p>{{i.descripcion}}</p></div>
-                <div class="text"><p>{{i.contenido}}</p></div>
-                <div class="row justify-content-center align-items-center">
-                    <div class="container-multimedia col-md-6 d-flex" *ngFor="let m of i.multimedia">
-                        <div>
-                            <p class="subtitle">{{m.titulo}}</p>
-                            <iframe [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
+            <swiper-slide *ngFor="let i of subtemas">
+                <div class="content">
+                    <div class="title row">
+                        <img class="col-md-1" src="{{i.img}}">
+                        <div class="col-md-11">{{i.titulo}}</div>                    
+                    </div>
+                    <div class="justify">
+                        <div class="subtitle"><p>{{i.descripcion}}</p></div>
+                        <div class="text"><p>{{i.contenido}}</p></div>
+                    </div>
+                    
+                    <div class="row row-multimedia text-center align-items-center">
+                        <div class="container-multimedia col-md-5 " *ngFor="let m of i.multimedia">
+                            <div class="align-items-center center">
+                                <p class="subtitle">{{m.titulo}}</p>
+                                <iframe class="row-iframe" [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -37,6 +45,15 @@
             <!-- ACTIVIDADES  -->
             <swiper-slide>
                 <div class="row justify-content-center align-items-center">
+                    <div class="content">
+                        <h1 class="titulo text-gray-800">Actividades propuestas</h1>
+                        <p class="justify">hemos recopilado una variedad de actividades emocionantes y estimulantes diseñadas para evaluar tu conocimiento
+                             y comprensión del tema. Ya sea que estés estudiando en casa, en la escuela o en un entorno de aprendizaje 
+                             profesional, nuestras actividades están diseñadas para desafiarte y ayudarte a mejorar tus habilidades en 
+                             este tema específico. Aquí encontrarás una amplia gama de actividades interactivas, desde cuestionarios y 
+                             pruebas de opción múltiple sopas de letra y ejercicios de resolución de problemas. Nuestro objetivo
+                              es ofrecerte una experiencia educativa integral y entretenida que te permita aplicar y demostrar tu dominio del tema</p>
+                    </div>
                     <div class="col-md-5" *ngFor="let a of actividades">
                         <div class="container-actividad ">
                             <p class="subtitle">{{a.titulo}}</p>
@@ -51,20 +68,25 @@
 
         <!-- COMENTARIOS -->
         <!-- CREAR COMENTARIO -->
-        <div class="comentario-form">
-            <div class="form-group">
-                <textarea id="commentInput" class="form-control" rows="5"></textarea>
+        <div class="comentario-form center">
+            <div class="form-group text-center align-items-center center">
+                <textarea id="commentInput" class="form-control input" rows="5"></textarea>
             </div>
-            <button (click)="addComentario()" class="btn btn-primary">Enviar comentario</button>
+            <div class="mt-4">
+                <button (click)="addComentario()" class="btn btn-danger">Enviar comentario</button>
+            </div>
+            
         </div>
         
         <!-- MOSTRAR COMENTARIOS -->
         <div class="comentario-box">
           <div id="comment-section">
-            <h3>Comments:</h3>
+            <hr>
+            <h3 class="titulo-comennt ms-3">Comments:</h3>
             <div id="comentario-container" class="form-control" *ngFor="let c of comentarios">
-                <strong>{{c.usuario.perNom}} {{c.usuario.perApell}}</strong> <p>{{c.createdAt}}</p>
-                <p>{{c.comentario}}</p>
+                <i class="fa-solid fa-user me-2"></i> 
+                <strong id="name">{{c.usuario.perNom}} {{c.usuario.perApell}}</strong> <p id="date">{{c.createdAt}}</p>
+                <p id="comment">{{c.comentario}}</p>
             </div>
           </div>
         </div>          

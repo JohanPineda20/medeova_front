@@ -1,28 +1,27 @@
 <!-- Section: Design Block -->
 <section class="text-center text-lg-start">
 
-  <img class="background-image" src="../../../../assets/Logo_de_UFPS.png" alt="logo universidad" />
+  <img class="background-image" src="../../../../assets/logoufps.png" alt="logo universidad" />
   <!-- Jumbotron -->
   <div class="container py-4">
     <div class="row g-0 justify-content-between">
       <div class="col-lg-5 mb-5 mb-lg-0">
-        <div class="card" style="background: hsla(0, 0%, 100%, 1); left:3.75em;">
+        <div class="card" style="background: hsla(0, 0%, 100%, 1); left:6.10em;">
           <div class="card-body p-5 shadow-5 text-center"> 
-            <h2 class="fw-bold mb-5">Inicio de sesión</h2>
+            <h1 class="fw-bold mb-5">Inicio de sesión</h1>
             <form role="form" [formGroup]="loginForm">
               <span class="text-danger">{{message}}</span>
               <!-- Email input -->
               <div class="form-outline mb-4" >
-                <i class="fas fa-envelope"></i>
                 <input formControlName="email" [ngClass]="{'error': isTouchedField(loginForm, 'email')}"
-                       type="email" id="form3Example3" class="form-control" placeholder="Correo"/>
+                       type="email" id="email" class="form-control" placeholder="Correo"/>
                 <span class="text-danger">{{getErrorForm('email')}}</span>
               </div>
-<br>
+              <br>
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <input formControlName="password" [ngClass]="{'error': isTouchedField(loginForm, 'password')}"
-                       type="password" id="form3Example4" class="form-control" placeholder="Contraseña"/>
+                       type="password" id="password" class="form-control" placeholder="Contraseña"/>
                 <span class="text-danger">{{getErrorForm('password')}}</span>
               </div>
               <br>

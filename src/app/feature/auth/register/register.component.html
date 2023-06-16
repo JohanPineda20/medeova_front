@@ -11,62 +11,62 @@
       }
     }
   </style>
- <img class="background-image" src="../../../../assets/Logo_de_UFPS.png" alt="logo universidad" />
+ <img class="background-image" src="../../../../assets/logoufps.png" alt="logo universidad" />
   <!-- Jumbotron -->
   <div class="container py-4">
     <div class="row g-0 justify-content-between">
       <div class="col-lg-5 mb-5 mb-lg-0">
-        <div class="card cascading-right" style="background: hsla(0, 0%, 100%, 1); left:3.75em;">
+        <div class="card cascading-right" style="background: hsla(0, 0%, 100%, 1); left:7.75em;">
           <div class="card-body p-5 shadow-5 text-center">
-            <h2 class="fw-bold mb-5">Registro de usuario</h2>
+            <h1 class="fw-bold mb-5">Registro de usuario</h1>
             <form role="form" [formGroup]="registerForm" *ngIf="registered == false">
               <span class="text-danger">{{message}}</span>
         
               <div class="form-outline mb-4">
-                <input formControlName="codigo" type="text" id="form3Example2" class="form-control" placeholder="Código Estudiantil"/>
+                <input formControlName="codigo" type="text" id="codigo" class="form-control" placeholder="Código Estudiantil"/>
                 <span class="text-danger">{{getErrorForm('codigo')}}</span>
               </div>
               
               <div class="row">
                   <div class="form-outline col-6">
-                    <input formControlName="priNombre" type="text" id="form3Example2" class="form-control" placeholder="Primer nombre"/>
+                    <input formControlName="priNombre" type="text" id="priNombre" class="form-control" placeholder="Primer nombre"/>
                     <span class="text-danger">{{getErrorForm('priNombre')}}</span>
                   </div>
                   <div class="form-outline col-6 mb-4">
-                    <input formControlName="segNombre" type="text" id="form3Example2" class="form-control" placeholder="Segundo nombre"/>
+                    <input formControlName="segNombre" type="text" id="segNombre" class="form-control" placeholder="Segundo nombre"/>
                     <span class="text-danger">{{getErrorForm('segNombre')}}</span>
                   </div>
                   <div class="form-outline col">
-                    <input formControlName="priApellido" type="text" id="form3Example2" class="form-control" placeholder="Primer apellido"/>
+                    <input formControlName="priApellido" type="text" id="priApellido" class="form-control" placeholder="Primer apellido"/>
                     <span class="text-danger">{{getErrorForm('priApellido')}}</span>
                   </div>
 
                   <div class="form-outline col mb-4">
-                    <input formControlName="segApellido" type="text" id="form3Example2" class="form-control" placeholder="Segundo apellido"/>
+                    <input formControlName="segApellido" type="text" id="segApellido" class="form-control" placeholder="Segundo apellido"/>
                     <span class="text-danger">{{getErrorForm('segApellido')}}</span>
                   </div>
               </div>
 
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input formControlName="email" type="email" id="form3Example3" class="form-control" placeholder="Correo"/>
+                <input formControlName="email" type="email" id="email" class="form-control" placeholder="Correo"/>
                 <span class="text-danger">{{getErrorForm('email')}}</span>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <input formControlName="password" type="password" id="form3Example4" class="form-control" placeholder="Contraseña"/>
+                <input formControlName="password" type="password" id="password" class="form-control" placeholder="Contraseña"/>
                 <span class="text-danger">{{getErrorForm('password')}}</span>
               </div>
               <!-- Repassword input -->
               <div class="form-outline mb-4">
-                <input formControlName="repassword" type="password" id="form3Example4" class="form-control" placeholder="Confirmar contraseña"/>
+                <input formControlName="repassword" type="password" id="repassword" class="form-control" placeholder="Confirmar contraseña"/>
                 <span class="text-danger">{{getErrorForm('repassword')}}</span>
               </div>
 
               
               <!-- Submit button -->
-              <button (click)="register()" type="submit" class="btn btn-danger btn-block mb-4">
+              <button (click)="register()" type="submit" class="btn btn-danger btn-block mb-4" style="font-weight: bold;">
                 Registrarse
               </button>
 
@@ -74,7 +74,7 @@
               <div class="text-center">
                 <span>Si ya te encuentras registrado</span>
                 <br>
-                <a style="text-decoration: none; font-weight: bold; color:#dc3545;" routerLink=""> inicia sesión aqui</a>
+                <a style="text-decoration: none; font-weight: bold; color:#dc3545;" routerLink="">Inicia sesión aqui</a>
               </div>
             </form>
 
@@ -87,8 +87,8 @@
         </div>
       </div>
 
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <img src="https://img.freepik.com/vector-gratis/colegial-pie-sobre-libros-levantando-mano-hablando-ilustracion-vector-plano-informe-tarea-casa-lectura-alumno-escuela-educacion-conocimiento_74855-8576.jpg" class="w-100 rounded-4 shadow-4"
+      <div class="col-lg-6" style="right:1000em;">
+        <img src="https://img.freepik.com/vector-gratis/colegial-pie-sobre-libros-levantando-mano-hablando-ilustracion-vector-plano-informe-tarea-casa-lectura-alumno-escuela-educacion-conocimiento_74855-8576.jpg" class=""
              alt="" />
       </div>
     </div>

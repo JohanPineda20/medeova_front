@@ -1,25 +1,54 @@
 a{
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold ;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold ;
 }
 .arrow-button {
-    background-color: #aa1619;
-    border: none;
-    color: #333;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%; 
-    width: 40px; 
-    height: 40px; 
-  }
-  
-  .arrow-down {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 10px solid #ffffff;
-  }
-  
+  background-color: #aa1619;
+  border: none;
+  color: #333;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%; 
+  width: 40px; 
+  height: 40px; 
+}
+
+.arrow-down {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #ffffff;
+}
+
+#ufps-logo{
+  width: 250px
+}
+.presentacion{
+  font-size: 18px;
+  text-align: justify;
+}
+.div-presentacion{
+  margin-right: 50px; margin-top: 50px;
+}
+.card-minh{
+  min-height: 300px;
+}
+#temas{
+  margin-top: 4em;
+}
+.temas-msj{
+  margin: 2em; font-size: 18px;
+}
+h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+.container-tema{
+  background-color: #242424; height: fit-content;
+}
+.min-container{
+  min-height: 1200px; margin-top: 2em;
+}

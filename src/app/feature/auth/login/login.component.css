@@ -1,13 +1,11 @@
 .section {
-  position: relative;
+    position: relative;
 }
-
+  
 .background-image {
-  position: absolute;
-  top: 6.5em;
-  left: -12.5em;
-  transform: rotate(25deg);
-  width:50%;
-  height: auto;
-  z-index: -1;
+    position: absolute;
+    top: 7.5em;
+    transform: rotate(25deg);
+    width: 22em;
+    z-index: -1;
 }
