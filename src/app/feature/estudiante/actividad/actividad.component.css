@@ -1,3 +1,8 @@
+a{
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
 .subtema-title{
     position: absolute;
     width: 99%;
@@ -58,4 +63,8 @@ swiper-container {
 .container-multimedia iframe{
     width: 400px;
     height: 250px;
+}
+.subtitle{
+  font-size: large;
+  font-weight: 500  ;
 }

@@ -1,3 +1,11 @@
+body h1, h2, h3{
+  font-weight: lighter;
+  font-family: cursive;
+  font-size: 30px;
+}
+body p{
+  font-size: 18px;
+}
 .subtema-title{
     position: absolute;
     width: 100%;
@@ -31,8 +39,9 @@ swiper-container {
   }
 
   swiper-slide .subtitle {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bolder;
+    color: black;
   }
 
   swiper-slide .text {
