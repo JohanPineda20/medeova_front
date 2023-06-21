@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Tema</h2>
+<mat-dialog-content class="mat-typography">
+  <p></p>
+  <form class="form-container row" [formGroup]="form">
+    <mat-form-field class="form-group col-md-12" appearance="outline">
+      <mat-label>Unidad</mat-label>    
+      <mat-select placeholder="Seleccione la unidad" formControlName="unidad" required>
+        <mat-option *ngFor="let unidad of unidades" [value]="unidad.idUnidad">{{unidad.titulo}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="this.form.get('unidad')?.errors?.['required']">Debe seleccionar la unidad</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12" appearance="outline">
+      <mat-label>Titulo</mat-label>
+      <input placeholder="Escriba el titulo" matInput formControlName="titulo">
+      <mat-error *ngIf="this.form.get('titulo')?.errors?.['required']">Debe ingresar un titulo</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12"appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10" formControlName="descripcion"></textarea>
+      <mat-error *ngIf="this.form.get('descripcion')?.errors?.['required']">Debe ingresar una descripcion</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="submitForm()" [disabled]="!this.form.valid">Guardar</button>
+</mat-dialog-actions>

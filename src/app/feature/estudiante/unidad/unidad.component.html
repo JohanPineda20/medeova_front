@@ -2,7 +2,7 @@
     <app-nav-student></app-nav-student>
     <!-- PAGE HEADING -->
     <div class="d-sm-flex align-items-center  mb-4" style="background-color: #aa1619;">
-        <img class="img-semi-redonda"  src="{{unidad.img}}">
+        <img class="img-semi-redonda"  src="../../../../assets/logoufps.png">
         <h3 class="ms-3  float-left titulo-unidad  ">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h3>
     </div>  
 </header>
@@ -11,7 +11,6 @@
 <aside style="box-shadow:none " class="mt-4">
     <ul *ngFor="let t of unidad.temas; let i=index" style="margin-bottom: 0px;">
         <li  class=" row " (click)="changeTema(i)">
-            <img class="col-md-2 list-img" src="{{t.img}}">
             <p class="col-md-8 mt-4 titulo">{{t.titulo}}</p>
             <span class="col-md-1 ms-4 mt-4"><i class=" fa-sharp fa-solid fa-play fa-lg" style="color: #aa1619;"></i></span><hr>  
         </li>
@@ -22,7 +21,6 @@
 <body style="min-height: fit-content;">
     <div class="container-content" style="box-shadow:none">
         <div class="row m-4 mt-0">
-            <img class="col-md-2 list-img" src="{{tema.img}}">
             <h2 class="col-md-10">{{tema.titulo}}</h2>
         </div>
         <div class="m-4">

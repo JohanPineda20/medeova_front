@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Subtema</h2>
+<mat-dialog-content class="mat-typography">
+  <p></p>
+  <form class="form-container row" [formGroup]="form">
+    <mat-form-field class="form-group col-md-6" appearance="outline">
+      <mat-label>Unidad</mat-label>    
+      <mat-select id="unidad" [formControl]="unidad" placeholder="Seleccione la unidad" (ngModelChange)="changeTemas()" required >
+        <mat-option *ngFor="let unidad of unidades; let i=index" [value]="i">{{unidad.titulo}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-6" appearance="outline">     
+      <mat-label>Tema</mat-label>
+      <mat-select placeholder="Seleccione el tema" formControlName="tema" required>
+        <mat-option *ngFor="let tema of temasSelected" [value]="tema.idTema">{{tema.titulo}}</mat-option>
+        <mat-error *ngIf="this.form.get('tema')?.errors?.['required']">Debe seleccionar un tema</mat-error>
+      </mat-select>
+      <mat-error *ngIf="this.form.get('tema')?.errors?.['required']">Debe seleccionar un tema</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12" appearance="outline">
+      <mat-label>Titulo</mat-label>
+      <input placeholder="Escriba el titulo" matInput formControlName="titulo">
+      <mat-error *ngIf="this.form.get('titulo')?.errors?.['required']">Debe ingresar un titulo</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12"appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" formControlName="descripcion"></textarea>
+      <mat-error *ngIf="this.form.get('descripcion')?.errors?.['required']">Debe ingresar una descripcion</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12"appearance="outline">
+      <mat-label>Contenido</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10" formControlName="contenido"></textarea>
+      <mat-error *ngIf="this.form.get('contenido')?.errors?.['required']">Debe ingresar una descripcion</mat-error>
+    </mat-form-field>
+  </form>
+
+  <div>
+    <h2 mat-dialog-title>Contenido multimedia</h2>
+    <table style="width:90%; margin: 0 auto;" class="table table-in-card">
+      <thead>
+          <th width="50" scope="col">ID</th>
+          <th width="300" scope="col">Titulo</th>
+          <th width="250" scope="col">Enlace</th>
+          <th width="50" scope="col">Eliminar</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of multimedia; let i=index">
+          <td>{{i}}</td>
+          <td>{{m.titulo}}</td>
+          <td><a href="{{m.url}}" target="_blank">{{m.url}}</a></td>
+          <td><button class="btn btn-danger" (click)="deleteMultimedia(i)"><mat-icon>delete</mat-icon></button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="addMultimedia()" class="btn btn-danger add-button" style="float: right; width: 200px;">Nuevo</button>
+  </div> 
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="submitForm()" [disabled]="!this.form.valid">Guardar</button>
+</mat-dialog-actions>

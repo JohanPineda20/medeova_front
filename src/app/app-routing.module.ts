@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'unidad/:idUnidad',component: UnidadComponent},
   { path: 'unidad/:idUnidad/tema/:idTema',component: TemaComponent},
   { path: 'actividad/:idActividad',component: ActividadComponent},
-  { path: 'actividades',component: ListaActividadComponent},
+  { path: 'listaractividades',component: ListaActividadComponent},
   
   //{path: 'admin',component: AdminComponent},
   //ADMIN

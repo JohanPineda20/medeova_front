@@ -1,10 +1,16 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { TemaService } from 'src/app/core/services/tema.service';
 import { UnidadService } from 'src/app/core/services/unidad.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatTabGroup } from '@angular/material/tabs';
+import { UnidadFormComponent } from './forms/unidad/unidad-form.component';
+import { TemaFormComponent } from './forms/tema/tema-form.component';
+import { SubtemaFormComponent } from './forms/subtema/subtema-form.component';
+import Swal from 'sweetalert2';
+import { SubtemaService } from 'src/app/core/services/subtema.service';
 
 @Component({
   templateUrl: './contenidos.component.html',
@@ -18,33 +24,64 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   ],
 })
 
-export class ContenidosAdminComponent implements AfterViewInit {
-  unidades: any[] = []
+export class ContenidosAdminComponent{
+  unidades: any = []
   temas: any = [[]]
   subtemas: any[] = [[]]
 
-
-
   dataSource: MatTableDataSource<any>[] = []
-  columnsToDisplay = [['ID', 'Titulo', 'Temas', 'Actividades', 'Progreso', 'Dificultad'], ['ID', 'Unidad', 'Titulo', 'Subtemas', 'Actividades'], ['ID', 'Unidad', 'Tema', 'Titulo']];
+  columnsToDisplay = [['ID', 'Titulo', 'Temas', 'Actividades', 'Progreso', 'Dificultad'], ['ID', 'Titulo', 'Unidad', 'Subtemas', 'Actividades'], ['ID', 'Titulo', 'Unidad', 'Tema']];
   columnsToDisplayWithExpand = [[...this.columnsToDisplay[0], 'expand'], [...this.columnsToDisplay[1], 'expand'], [...this.columnsToDisplay[2], 'expand']];
   expandedElement: any | null = [[]];
 
   @ViewChild('paginatorUnidad') paginator: MatPaginator; @ViewChild('paginatorTema') paginator2: MatPaginator; @ViewChild('paginatorSubtema') paginator3: MatPaginator;
-  @ViewChild('sortUnidad') sort: MatSort; //@ViewChild('sortTema') sort2: MatSort;
-  selected = 0
+  @ViewChild(MatTabGroup) tabGroup: MatTabGroup;
 
-  constructor(private temaService: TemaService, private unidadService: UnidadService) {
+  constructor(private subtemaService: SubtemaService, private temaService: TemaService, private unidadService: UnidadService, public dialog:MatDialog) {
     this.cargarUnidades()
   }
 
-  ngAfterViewInit() {
-
+  add(){
+    if(this.tabGroup.selectedIndex == 0) this.dialog.open(UnidadFormComponent, {data: {unidad: -1}});
+    else if(this.tabGroup.selectedIndex == 1) this.dialog.open(TemaFormComponent, {data: {tema: -1}});
+    else this.dialog.open(SubtemaFormComponent, {data: {subtema: -1}});
   }
 
+  edit(obj:any) {
+   if(this.tabGroup.selectedIndex == 0) this.dialog.open(UnidadFormComponent, {data: {unidad: obj}});
+   else if(this.tabGroup.selectedIndex == 1) this.dialog.open(TemaFormComponent, {data: {tema: obj}});
+   else this.dialog.open(SubtemaFormComponent, {data: {subtema: obj}});
+  }
+
+  delete(obj:any){
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: "Esta acción es irreversible",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if(this.tabGroup.selectedIndex == 0) this.unidadService.eliminar(obj.idUnidad).subscribe()
+        else if(this.tabGroup.selectedIndex == 1) this.temaService.eliminar(obj.idTema).subscribe()
+        else this.subtemaService.eliminar(obj.idSubtema).subscribe()
+        Swal.fire('Eliminado con éxito!', '', 'success').then(function(){location.reload()})
+      }
+    })
+  }
+
+  filterTable(title:any, id:number) {
+    this.dataSource[id].filter = title.trim().toLowerCase();
+
+    if (this.dataSource[id].paginator) this.dataSource[id].paginator.firstPage();
+    this.tabGroup.selectedIndex = id
+  }
 
   cargarUnidades() {
-    let cnt = 0
+    let cnt = 0    
     this.unidadService.listar().subscribe(data => {
       this.unidades = data
       var filas: any = []
@@ -85,7 +122,7 @@ export class ContenidosAdminComponent implements AfterViewInit {
         this.cargarSubtemas(cnt++)
       })
       this.temaService.getActividades(this.temas[x][i].idTema).subscribe(tot => {
-        filas[i].Actividades = tot.length
+        filas[i].Actividades = tot.length; this.temas[x][i].actividades = tot
       })
       if (x != 0) {
         let data = this.dataSource[1].data; data.push(filas[i])
@@ -94,7 +131,6 @@ export class ContenidosAdminComponent implements AfterViewInit {
     }
     if (x == 0) this.dataSource[1] = new MatTableDataSource(filas)
     this.dataSource[1].paginator = this.paginator2;
-    //this.dataSource[1].sort = this.sort2;
   }
 
   cargarSubtemas(x: number) {
@@ -117,20 +153,9 @@ export class ContenidosAdminComponent implements AfterViewInit {
 
   }
 
-  prueba() {
-    console.log(this.unidades);
-    console.log(this.temas);
-    console.log(this.subtemas);
-
-
-  }
-
-
   applyFilter(event: Event, id: number) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource[id].filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource[id].paginator)
-      this.dataSource[id].paginator.firstPage();
+    if (this.dataSource[id].paginator) this.dataSource[id].paginator.firstPage();
   }
 }
