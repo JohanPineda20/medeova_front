@@ -1,20 +1,52 @@
 <header>
     <app-nav-student></app-nav-student>
 </header>
-<div class="container-fluid">
- <div class="col-lg-3">
-   Progreso:
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+  <!-- Jumbotron -->
+  <div class="container-fluid py-3">
+      <div class="col-lg-4">
+        <div class="card" style="background: hsla(0, 0%, 100%, 1);">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h2 class="fw-bold mb-5">Datos del usuario</h2>
+            <form role="form" [formGroup]="perfilForm">
+
+              <!-- codigo input -->
+              <div class="form-outline mb-4">
+                <label for="nombre">Código estudiantil:</label>
+                <input formControlName="codigo" type="text" id="form3Example2" class="form-control" readonly/>
+              </div>
+              <!-- nombres input -->
+              <div class="row">
+                  <div class="form-outline col-6">
+                    <label for="nombre">Primer nombre:</label>
+                    <input formControlName="priNombre" type="text" id="form3Example2" class="form-control" readonly/>
+                  </div>
+                  <div class="form-outline col-6 mb-4">
+                    <label for="nombre">Primer apellido:</label>
+                    <input formControlName="segNombre" type="text" id="form3Example2" class="form-control" readonly/>
+                  </div>
+                  <div class="form-outline col">
+                    <label for="nombre">Segundo nombre:</label>
+                    <input formControlName="priApellido" type="text" id="form3Example2" class="form-control" readonly/>
+                  </div>
+                  <div class="form-outline col mb-4">
+                    <label for="nombre">Segundo apellido:</label>
+                    <input formControlName="segApellido" type="text" id="form3Example2" class="form-control" readonly/>
+                  </div>
+              </div>
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <label for="nombre">Correo:</label>
+                <input formControlName="email" type="email" id="form3Example3" class="form-control" readonly/>
+              </div>
+            </form>
+          </div>
+        </div>
+      
+
+    </div>
   </div>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-  </div>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
-  </div>
-  <div class="progress">
-    <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
-  </div>
- </div>
-</div>
+  <!-- Jumbotron -->
+
+
+
+

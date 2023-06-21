@@ -1,3 +1,4 @@
+import { ProfileService } from './../../../core/services/profile.service';
 import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -5,6 +6,8 @@ import { TemaService } from 'src/app/core/services/tema.service';
 import * as $ from 'jquery'
 import { ActividadComponent } from '../actividad/actividad.component';
 import { MatDialog } from '@angular/material/dialog';
+import { TokenService } from 'src/app/core/services/token.service';
+import { EstudianteDto } from 'src/app/core/dto/estudianteDto';
 
 @Component({
   selector: 'app-tema',
@@ -18,18 +21,10 @@ export class TemaComponent
   comentarios: any = []
   actividades: any = []
   subtemas: any = []
-  usuario = {
-    "codigo": "1151910",
-     "perNom": "PAULA",
-     "sdoNom": "VALENTINA",
-     "perApell": "RICO",
-     "sdoApell": "LINDARTE",
-     "email": "paulavalentinarlin@ufps.edu.co",
-     "clave": "12345"
-  }
+  usuario: EstudianteDto
   
 
-  constructor(private temaService: TemaService, private aRouter: ActivatedRoute, private dialog: MatDialog, private sanitizer: DomSanitizer) 
+  constructor(private temaService: TemaService, private aRouter: ActivatedRoute, private dialog: MatDialog, private sanitizer: DomSanitizer, private tokenService: TokenService, private profileService: ProfileService) 
   {   
     this.temaService.encontrar(this.aRouter.snapshot.paramMap.get('idTema')).subscribe(data => {
       this.temaService.getComentarios(data.idTema).subscribe(data => this.comentarios = data)
@@ -39,8 +34,11 @@ export class TemaComponent
           sub[i].contenido = sub[i].contenido.replace(/\r\n/g, '<br>')
         this.subtemas = sub
       })
-      this.tema = data; this.unidad = data.unidad;      
+      this.tema = data; this.unidad = data.unidad;
     })
+    this.profileService.getEstudiante(this.tokenService.getInfoToken().id).subscribe(response => {
+      this.usuario = response;
+    });
   }
 
   addComentario(){

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core'
+import { inject, NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { LoginComponent } from './feature/auth/login/login.component'
 import { RegisterComponent } from './feature/auth/register/register.component'
@@ -13,35 +13,46 @@ import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiant
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component'
 import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component'
 import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component'
+import { GuardAuthService } from './core/services/guard-auth.service'
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'singup', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'unidad/:idUnidad', component: UnidadComponent },
-  { path: 'unidad/:idUnidad/tema/:idTema', component: TemaComponent },
-  { path: 'actividad/:idActividad', component: ActividadComponent },
-  { path: '',component: LoginComponent},
-  { path: 'login',component: LoginComponent},
-  { path: 'singup',component: RegisterComponent},
-  { path: 'home',component: HomeComponent},
-  { path: 'profile',component: ProfileComponent},
-  { path: 'unidad/:idUnidad',component: UnidadComponent},
-  { path: 'unidad/:idUnidad/tema/:idTema',component: TemaComponent},
-  { path: 'actividad/:idActividad',component: ActividadComponent},
-  { path: 'listaractividades',component: ListaActividadComponent},
+  {path: '',
+  component: LoginComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveLogin()],},
+  {path: 'login',
+  component: LoginComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveLogin()]},
+  {path: 'singup',
+  component: RegisterComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveLogin()]},
+  {path: 'home',
+  component: HomeComponent, 
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
+  {path: 'profile',
+  component: ProfileComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
+  {path: 'unidad/:idUnidad',
+  component: UnidadComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
+  {path: 'unidad/:idUnidad/tema/:idTema',
+  component: TemaComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
+  {path: 'actividad/:idActividad',
+  component: ActividadComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
+  { path: 'listaractividades',
+  component: ListaActividadComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
   
-  //{path: 'admin',component: AdminComponent},
   //ADMIN
-  { path: 'dashboard', component: DashboardAdminComponent },
-  { path: 'actividades', component: ActividadesAdminComponent },
-  { path: 'estudiantes', component: EstudiantesAdminComponent },
-  { path: 'contenidos', component: ContenidosAdminComponent },
-  {path: 'admin/actividad/:idActividad',component: ActividadAdminComponent},
-  {path: 'admin/actividad',component: ActividadAdminComponent}
-
+  { path: 'dashboard', component: DashboardAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
+  { path: 'actividades', component: ActividadesAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
+  { path: 'estudiantes', component: EstudiantesAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
+  { path: 'contenidos', component: ContenidosAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
 ];
 
 @NgModule({

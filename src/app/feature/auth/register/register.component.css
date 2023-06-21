@@ -1,0 +1,12 @@
+.section {
+    position: relative;
+  }
+  
+  .background-image {
+    position: absolute;
+    top: 7.5em;
+    transform: rotate(25deg);
+    width: 27em;
+    z-index: -1;
+  }
+  

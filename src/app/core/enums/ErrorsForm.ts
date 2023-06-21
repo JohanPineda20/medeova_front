@@ -3,5 +3,9 @@ export enum ErrorsForm {
 
   ONLY_NUMBER = "Solo se aceptan números",
 
-  EMAIL_FORMAT = "Debe tener el formato de un email"
+  ONLY_LETTERS = "Solo se aceptan letras",
+
+  EMAIL_FORMAT = "Debe tener el formato de un email",
+
+  ERROR_PASSWORD = "Las contraseñas no coinciden"
 }

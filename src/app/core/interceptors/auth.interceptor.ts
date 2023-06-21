@@ -16,15 +16,13 @@ export class AuthInterceptor implements HttpInterceptor { //interceptar las soli
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let headers;
-
     let token = this.tokenService.getToken();
 
     if (!token) {
       return next.handle(request); //si no hay ningún token de autenticación presente permite que las solicitudes continúen sin ser modificadas. Esto puede ser útil en escenarios donde algunas rutas o endpoints no requieren autenticación y se desea permitir el acceso sin la necesidad de un token.
     }
 
-
-    //para las solicitudes que necesitan llevar un token
+//para las solicitudes que necesitan llevar un token
     headers = {
       'Authorization': 'Bearer '+token
     }
@@ -35,9 +33,8 @@ export class AuthInterceptor implements HttpInterceptor { //interceptar las soli
       },
     });
 
-    console.log(authRequest)
     return next.handle(authRequest).pipe(
-      catchError((err: HttpErrorResponse) => {
+      catchError((err: HttpErrorResponse) => {//el token es invalido, expiró o no tienes el rol permitido = No tienes permisos
         if (err.status === 403) {
           Swal.fire({
             icon: 'error',
