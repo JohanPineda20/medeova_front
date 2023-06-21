@@ -1,10 +1,12 @@
-import {AfterViewInit, Component, ViewChild, OnInit} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { ActividadService } from 'src/app/core/services/actividad.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActividadAdminComponent } from './form/actividad.component';
+import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   styleUrls: ['./actividades.component.css'],
@@ -17,38 +19,33 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
     ]),
   ],
 })
-export class ActividadesAdminComponent implements AfterViewInit 
+export class ActividadesAdminComponent 
 {
   promedio: number = 0
   dataSource: MatTableDataSource<any>;
-  columnsToDisplay : string[] = ['ID', 'Titulo', 'Tipo', 'Unidad', 'Tema', 'Progreso', 'Dificultad'];
+  columnsToDisplay : string[] = ['ID', 'Titulo', 'Unidad', 'Tema', 'Progreso', 'Dificultad'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];  
   expandedElement: any | null;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private actividadService: ActividadService, private aRoute: ActivatedRoute) {}
-
-  ngAfterViewInit() {
-    this.aRoute.params.subscribe((params:Params) =>{
-      if(params['id']) console.log("Sí hay ID");
-      
-    })
+  constructor(private actividadService: ActividadService, public dialog:MatDialog) {
     this.actividadService.listar().subscribe(data => {  
-      var actividades:  any[] = []
+      var actividades:  any[] = []      
       for(let i = 0; i<data.length; i++){
         var act = data[i]
+        
         actividades.push({
           ID: i+1,
           actividad: data[i],
           Titulo: act.titulo,
-          Tipo: act.tipoActividad.nombre,
           Unidad: act.tema.unidad.titulo,
           Tema: act.tema.titulo,
           Progreso: '0',
           Dificultad: 0
         })
+        
         this.actividadService.getPorcentaje(act.idActividad).subscribe(dat => {actividades[i].Progreso = dat+'%'; this.promedio+=dat; if(i == data.length-1) this.promedio/=i+1})
         this.actividadService.getPromedioDificultad(act.idActividad).subscribe(data => actividades[i].Dificultad = data != null ? data: 'Indefinido')
       }
@@ -57,6 +54,31 @@ export class ActividadesAdminComponent implements AfterViewInit
       this.dataSource.sort = this.sort;
     })    
   }
+
+  add(){
+    this.dialog.open(ActividadAdminComponent, {data: {actividad: -1}});
+  }
+
+  edit(obj:any) {
+   this.dialog.open(ActividadAdminComponent, {data: {actividad: obj}});
+  }
+
+  delete(obj:any) {
+    Swal.fire({
+      title: '¿Está seguro de eliminar esta actividad?',
+      text: "Esta acción es irreversible",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.actividadService.eliminar(obj.idActividad).subscribe(data => Swal.fire('Eliminado con éxito!', '', 'success').then(function(){location.reload()}))
+      }
+    })
+   }
 
   calcularPromedio(valor:number){
     this.promedio += valor  

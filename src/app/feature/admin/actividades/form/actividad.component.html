@@ -1,62 +1,49 @@
-<app-nav-admin></app-nav-admin>
+<h2 mat-dialog-title>Actividad</h2>
+<mat-dialog-content class="mat-typography">
+  <label></label>
+  <form class="form-container row" [formGroup]="form">
+    <mat-form-field class="form-group col-md-6" appearance="outline">
+      <mat-label>Unidad</mat-label>    
+      <mat-select id="unidad" [formControl]="unidad" placeholder="Seleccione la unidad" (ngModelChange)="changeTemas()" required >
+        <mat-option *ngFor="let unidad of unidades; let i=index" [value]="i">{{unidad.titulo}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-<body>
-    <div class="dashboard">
-        <div class="title">
-            <i class="uil uil-tachometer-fast-alt"></i>
-            <span class="text">Actividad</span>
-        </div>
-        <div class="table-content">
-            <form action="" class="">
-                <div class="form-group">
-                    <div class="col-md-4 mb-3">
-                      <label for="validationServer01">First name</label>
-                      <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
-                      <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="validationServer02">Last name</label>
-                      <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
-                      <div class="valid-feedback">
-                        Looks good!
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <label for="validationServerUsername">Username</label>
-                      <div class="input-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupPrepend3">@</span>
-                        </div>
-                        <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
-                        <div class="invalid-feedback">
-                          Please choose a username.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <div class="form-group row justify-content-around">
-                    <mat-form-field class="col-md-3 form-group" appearance="fill">
-                        <mat-label>Unidad</mat-label>
-                        <mat-select>
-                            <mat-option value="one">Titulo</mat-option>
-                            <mat-option value="two">Second option</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field class="col-md-3 form-group" appearance="fill">
-                        <mat-label>Tema</mat-label>
-                        <mat-select>
-                            <mat-option value="one">First option</mat-option>
-                            <mat-option value="two">Second option</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field class="col-md-5" appearance="fill">
-                        <mat-label for="">Url</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </form>
-        </div>
-    </div>
-</body>
+    <mat-form-field class="form-group col-md-6" appearance="outline">     
+      <mat-label>Tema</mat-label>
+      <mat-select placeholder="Seleccione el tema" formControlName="tema" required>
+        <mat-option *ngFor="let tema of temasSelected" [value]="tema.idTema">{{tema.titulo}}</mat-option>
+        <mat-error *ngIf="this.form.get('tema')?.errors?.['required']">Debe seleccionar un tema</mat-error>
+      </mat-select>
+      <mat-error *ngIf="this.form.get('tema')?.errors?.['required']">Debe seleccionar un tema</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12" appearance="outline">
+      <mat-label>Titulo</mat-label>
+      <input matInput formControlName="titulo">
+      <mat-error *ngIf="this.form.get('titulo')?.errors?.['required']">Debe ingresar un titulo</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12"appearance="outline">
+      <mat-label>Objetivo</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="3" formControlName="objetivo"></textarea>
+      <mat-error *ngIf="this.form.get('objetivo')?.errors?.['required']">Debe ingresar un objetivo</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12"appearance="outline">
+      <mat-label>Instrucciones</mat-label>
+      <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10" formControlName="instrucciones"></textarea>
+      <mat-error *ngIf="this.form.get('instrucciones')?.errors?.['required']">Debe ingresar las instrucciones</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="form-group col-md-12" appearance="outline">
+      <mat-label>Enlace</mat-label>
+      <input matInput formControlName="url">
+      <mat-error *ngIf="this.form.get('url')?.errors?.['required']">Debe ingresar el enlace</mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button cdkFocusInitial (click)="submitForm()" [disabled]="!this.form.valid">Guardar</button>
+</mat-dialog-actions>
