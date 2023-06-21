@@ -6,26 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TemaService {
+export class SubtemaService {
 
-  uri = `${global.url}/tema`;
+  uri = `${global.url}/subtema`;
   constructor(private http:HttpClient) { }
 
-
-  public getSubtemas(id:any):Observable<any[]>{
-    return this.http.get<any>(`${this.uri}/${id}/subtemas`);
-  }
-
-  public getActividades(id:any):Observable<any[]>{
-    return this.http.get<any>(`${this.uri}/${id}/actividades`);
-  }
-
-  public getComentarios(id:any):Observable<any[]>{
-    return this.http.get<any>(`${this.uri}/${id}/comentarios`);
-  }
-
-  public addComentario(id:any, comentario:any):Observable<any[]>{
-    return this.http.post<any>(`${this.uri}/${id}/comentarios`, comentario);
+  public getMultimedia(id:any):Observable<any[]>{
+    return this.http.get<any>(`${this.uri}/${id}/multimedia`);
   }
 
   public listar():Observable<any[]>{

@@ -6,37 +6,26 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ActividadService {
+export class MultimediaService {
 
-  uri = `${global.url}/actividad`;
+  uri = `${global.url}/multimedia`;
   constructor(private http:HttpClient) { }
 
+  
   public listar():Observable<any[]>{
     return this.http.get<any>(`${this.uri}`);
-  }
-
-  public getCompletadas():Observable<any[]>{
-    return this.http.get<any>(`${this.uri}/completadas`);
   }
 
   public encontrar(id:any):Observable<any>{
     return this.http.get<any>(`${this.uri}/${id}`);
   }
 
-  public getPorcentaje(id:any):Observable<any>{
-    return this.http.get<any>(`${this.uri}/${id}/porcentaje`);
-  }
-
-  public getPromedioDificultad(id:any):Observable<any>{
-    return this.http.get<any>(`${this.uri}/${id}/promedio`);
-  }
-
   public guardar(nuevo:any):Observable<any>{
     return this.http.post<any>(`${this.uri}`, nuevo);
   }
 
-  public editar(nuevo:any, id:any):Observable<any>{
-    return this.http.post<any>(`${this.uri}/${id}`, nuevo);
+  public guardarTodos(nuevo:any[]):Observable<any>{
+    return this.http.post<any>(`${this.uri}/todos`, nuevo);
   }
 
   public eliminar(id:any):Observable<any>{
