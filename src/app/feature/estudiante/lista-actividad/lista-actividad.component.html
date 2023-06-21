@@ -4,13 +4,11 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row mt-4">
-            <div class="col-lg-1"></div>
+        <div class="row justify-content-center mt-4">
             <div class="col-lg-10">
-                <div class="card shadow mb-4 "  >
-                    <div class="card-body p-4 ">    
+                <div class="card shadow mb-4">
+                    <div class="card-body p-4">    
                         <h3 class="text-center titulo">Lista de actividades</h3>
-                        <br>
                         <p class="justify">Hemos recopilado una variedad de actividades emocionantes y estimulantes diseñadas para evaluar tu conocimiento
                             y comprensión del tema. Ya sea que estés estudiando en casa, en la escuela o en un entorno de aprendizaje 
                             profesional, nuestras actividades están diseñadas para desafiarte y ayudarte a mejorar tus habilidades en 
@@ -20,20 +18,18 @@
                         <div class="div-img p-2" >
                             <img id="ufps-logo"  src="../../../../assets/actividades.jpg" alt="actividades">
                         </div>
-                        <div class="card-body ps-4 pe-4 row"  *ngFor="let a of actividades">
-                            <div class="col-md-1"></div>
+                        <div class="card-body ps-4 pe-4 row justify-content-center"  *ngFor="let a of actividades">
                             <div class="col-md-10">
                                 <div class="container-actividad ">
-                                    <p class="subtitle">{{a.titulo}}</p>
-                                    <hr>
-                                    <br>
+                                    <p class="subtitle">{{a.titulo}}</p><hr>
                                     <div class="row">
                                         <p class="text col-6"><strong>Objetivo: </strong>{{a.objetivo}}</p>
                                         <div class="col-2"></div>
                                         <div class="col-2">
-                                            <button type="button" class="btn btn-danger " routerLink="/actividad/{{a.idActividad}}">Ir a la actividad</button>
-                                        </div>
-                                        
+                                            <a href="{{a.url}}" target="_blank" style="color:white">
+                                                <button class="btn btn-danger">Ir a la actividad</button>
+                                            </a>
+                                        </div>                                        
                                         <div class="col-2">
                                             <button type="button" class="btn btn-danger " routerLink="/actividad/{{a.idActividad}}"> <i class="fa-sharp fa-solid fa-check-double"></i> Completada</button>
                                         </div>

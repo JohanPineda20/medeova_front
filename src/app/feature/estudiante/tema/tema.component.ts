@@ -2,8 +2,9 @@ import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { TemaService } from 'src/app/core/services/tema.service';
-import { UnidadService } from 'src/app/core/services/unidad.service';
 import * as $ from 'jquery'
+import { ActividadComponent } from '../actividad/actividad.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tema',
@@ -28,7 +29,7 @@ export class TemaComponent
   }
   
 
-  constructor(private temaService: TemaService, private unidadService: UnidadService, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) 
+  constructor(private temaService: TemaService, private aRouter: ActivatedRoute, private dialog: MatDialog, private sanitizer: DomSanitizer) 
   {   
     this.temaService.encontrar(this.aRouter.snapshot.paramMap.get('idTema')).subscribe(data => {
       this.temaService.getComentarios(data.idTema).subscribe(data => this.comentarios = data)
@@ -36,7 +37,7 @@ export class TemaComponent
       this.temaService.getSubtemas(data.idTema).subscribe(sub=>{        
         for(let i = 0; i<sub.length; i++)
           sub[i].contenido = sub[i].contenido.replace(/\r\n/g, '<br>')
-        this.subtemas = sub        
+        this.subtemas = sub
       })
       this.tema = data; this.unidad = data.unidad;      
     })
@@ -50,6 +51,10 @@ export class TemaComponent
       "comentario": comment
     }
     this.temaService.addComentario(this.tema.idTema, c).subscribe(data => this.temaService.getComentarios(this.tema.idTema).subscribe(data => this.comentarios = data))
+  }
+
+  verActividad(actividad:any){
+    this.dialog.open(ActividadComponent, {data: {actividad: actividad}});
   }
 
   sanitizeUrl(url: string): SafeResourceUrl {

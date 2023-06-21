@@ -1,9 +1,6 @@
-import { Component} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { TemaService } from 'src/app/core/services/tema.service';
-import { ActividadService } from 'src/app/core/services/actividad.service';
-import * as $ from 'jquery'
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tema',
@@ -12,21 +9,27 @@ import * as $ from 'jquery'
 })
 export class ActividadComponent 
 {
-  actividad: any = ''
-  tema: any = ''
   
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { actividad: any }) {}
 
-  constructor(private temaService: TemaService, private actividadService: ActividadService, private aRouter: ActivatedRoute, private sanitizer: DomSanitizer) 
-  {   
-    this.actividadService.encontrar(this.aRouter.snapshot.paramMap.get('idActividad')).subscribe(data => {
-      this.actividad = data
-      this.tema = data.tema
-    })
+  completar(){
+    Swal.fire({
+      title: 'Completar',
+      input: 'number',
+      inputAttributes: {
+        min: '1', max: '10'
+      },
+      inputLabel: 'Digite la dificultad de la actividad',
+      showCancelButton: true,
+      confirmButtonText: 'Completar',
+      cancelButtonText: 'Cancelar',
+      preConfirm: (value) => {
+        if (value) {
+          console.log('Entered number:', value);
+        }
+      }
+    });
   }
 
   
-
-  sanitizeUrl(url: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
 }

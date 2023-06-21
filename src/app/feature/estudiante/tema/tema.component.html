@@ -6,7 +6,6 @@
             <h1 class="h3 mb-0 text-gray-800 titulo">Unidad {{unidad.idUnidad}}: {{unidad.titulo}}</h1>
         </div>
         <div class="row row-gutter-0" > 
-            <img class="col-md-1" src="{{tema.img}}" >
             <h3 class="col-md 8 h3 mb-2 mt-3 text-gray-800">{{tema.titulo}}</h3>            
         </div>
         
@@ -24,12 +23,11 @@
             <swiper-slide *ngFor="let i of subtemas; let index = index">
                 <div class="content">
                     <div class="title row">
-                        <img class="col-md-1" src="{{i.img}}">
                         <div class="col-md-11 titulo text-gray-800"><h2>{{i.titulo}}</h2></div>                    
                     </div>
                     <div class="justify">
-                        <div class="subtitle"><p>{{i.descripcion}}</p></div>
-                        <div class="text"><p id="contenido-{{index}}" [innerHTML]="i.contenido">{{i.contenido}}</p></div>
+                        <div class="subtitle"><p class="subtitle">{{i.descripcion}}</p></div>
+                        <div class="text"><p id="contenido-{{index}}" [innerHTML]="i.contenido" class="text">{{i.contenido}}</p></div>
                     </div>
                     
                     <div class="row row-multimedia text-center justify-content-center">
@@ -58,7 +56,7 @@
                         <div class="container-actividad ">
                             <p class="subtitle">{{a.titulo}}</p>
                             <p class="text"><strong>Objetivo: </strong>{{a.objetivo}}</p>
-                            <button type="button" class="btn btn-danger" routerLink="/actividad/{{a.idActividad}}">Ir a la actividad</button>
+                            <button class="btn btn-danger" (click)="verActividad(a)">Ver actividad</button>
                         </div>
                     </div>                                   
                 </div>                
