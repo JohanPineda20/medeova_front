@@ -51,7 +51,6 @@ export class EstudiantesAdminComponent implements AfterViewInit
         this.unidades = data;
         for(let i = 0; i<filas.length; i++){
           for(let j = 0; j<data.length; j++){
-            console.log(filas[i].Codigo, data[j].idUnidad);
             filas[i].Unidades[j] = []
             filas[i].Unidades[j][0] = j+1;
             this.estudianteService.getProgresoByUnidad(filas[i].Codigo, data[j].idUnidad).subscribe(dat => filas[i].Unidades[j][1] = dat == null ? 0 : dat)            

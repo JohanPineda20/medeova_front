@@ -87,7 +87,7 @@ export class ContenidosAdminComponent{
       var filas: any = []
       for (let i = 0; i < data.length; i++) {
         filas.push({
-          ID: data[i].idUnidad,
+          ID: i+1,
           Titulo: data[i].titulo,
           unidad: data[i]
         })
@@ -101,6 +101,7 @@ export class ContenidosAdminComponent{
           filas[i].Actividades = tot.length
           this.unidadService.getActividadesCompletadas(data[i].idUnidad).subscribe(compl => filas[i].Progreso = (compl.length == 0 ? 0 : compl.length * 100 / tot.length) + '%')
         })
+        this.unidadService.getpromedioDificultad(data[i].idUnidad).subscribe(data => filas[i].Dificultad = data)
       }
       this.dataSource[0] = new MatTableDataSource(filas)
       this.dataSource[0].paginator = this.paginator;
@@ -111,7 +112,7 @@ export class ContenidosAdminComponent{
     var filas: any = []
     for (let i = 0; i < this.temas[x].length; i++) {
       filas.push({
-        ID: this.temas[x][i].idTema,
+        ID: cnt+i+1,
         Unidad: this.temas[x][i].unidad.titulo,
         Titulo: this.temas[x][i].titulo,
         tema: this.temas[x][i]

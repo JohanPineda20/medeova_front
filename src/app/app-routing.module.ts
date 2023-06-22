@@ -18,7 +18,7 @@ import { ProfileAdminComponent } from './feature/admin/profile/profile-admin.com
 const routes: Routes = [
   {path: '',
   component: LoginComponent,
-  canActivate: [() => inject(GuardAuthService).canActiveLogin()],},
+  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()],},
   {path: 'login',
   component: LoginComponent,
   canActivate: [() => inject(GuardAuthService).canActiveLogin()]},

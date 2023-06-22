@@ -80,11 +80,14 @@
         <div class="comentario-box">
           <div id="comment-section">
             <hr>
-            <h3 class="titulo-comennt ms-3">Comments:</h3>
-            <div id="comentario-container" class="form-control" *ngFor="let c of comentarios">
+            <h3 class="titulo-comennt ms-3">Comentarios:</h3>
+            <div id="comentario-container" class="form-control" *ngFor="let c of comentarios; let i=index">
                 <i class="fa-solid fa-user me-2"></i> 
                 <strong id="name">{{c.usuario.perNom}} {{c.usuario.perApell}}</strong> <p id="date">{{c.createdAt}}</p>
                 <p id="comment">{{c.comentario}}</p>
+                <button *ngIf="usuario.codigo == c.usuario.codigo" class="btn btn-danger" (click)="deleteComentario(i)">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
             </div>
           </div>
         </div>          

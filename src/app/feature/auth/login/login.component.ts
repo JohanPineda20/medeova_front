@@ -33,9 +33,7 @@ export class LoginComponent extends AppBaseComponent {
 
 
   public login(): void{
-    this.authService.signIn(this.loginForm.value).subscribe(response => {
-    console.log(response);
-    });
+    this.authService.signIn(this.loginForm.value).subscribe();
 
   }
 
@@ -50,11 +48,11 @@ export class LoginComponent extends AppBaseComponent {
       }
 
       this.authService.signIn(dtoLogin).subscribe(response => {
-        if(this.tokenService.getInfoToken().rol.some((r) => r.authority === "USER")){
-          this.router.navigateByUrl("/home");
+        if(this.tokenService.getInfoToken().rol.some((r) => r.authority === "ADMIN")){
+          this.router.navigateByUrl("/dashboard");
         }
         else{
-          this.router.navigateByUrl("/dashboard");
+          this.router.navigateByUrl("/home");
         }
       
       },
