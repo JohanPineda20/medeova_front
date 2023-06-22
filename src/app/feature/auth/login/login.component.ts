@@ -61,10 +61,6 @@ export class LoginComponent extends AppBaseComponent {
       error => {
         this.message = error.error
       })
-
-
-
-
     } else {
       Swal.fire({
         icon: 'error',

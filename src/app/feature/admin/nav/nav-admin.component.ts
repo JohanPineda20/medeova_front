@@ -17,10 +17,11 @@ export class NavAdminComponent implements OnInit {
 
   loadMenuItems(){
     this.menuItems = [
+      ["Estadisticas", "bx bx-pie-chart-alt-2 icon", "/dashboard"],
       ["Estudiantes", "bx bx-bar-chart-alt-2 icon", "/estudiantes"],
-      ["Actividades", "bx bx-pie-chart-alt-2 icon", "admin/actividades"],
+      ["Actividades", "bx bx-pie-chart-alt-2 icon", "/actividades"],
       ["Contenidos", "bx bx-folder-open icon", "/contenidos"],
-      ["Estadisticas", "bx bx-bar-chart-alt-2 icon", "/dashboard"]      
+        
     ]
   }
 

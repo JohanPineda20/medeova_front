@@ -12,11 +12,12 @@
         <a class="col-md-3" href="{{data.actividad.url}}" target="_blank">
             <button class="btn btn-danger">Ir a la actividad</button>
         </a>
-        <button class="btn btn-danger col-md-4" (click)="completar()">Marcar como completada</button>
+        <button *ngIf="completada==true && estudiante != null" class="btn btn-success col-md-3" disabled="true"> <i class="fa-sharp fa-solid fa-circle-check"></i> Completada</button>
+        <button *ngIf="completada==false && estudiante != null" class="btn btn-danger col-md-3" (click)="completar()"> <i class="fa-sharp fa-solid fa-check-double"></i> Completar</button>
     </div>
     
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Terminar</button>
 </mat-dialog-actions>

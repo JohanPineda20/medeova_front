@@ -16,6 +16,14 @@ export class EstudianteService {
     return this.http.get<any>(`${this.uri}/${id}/progreso`);
   }
 
+  public isCompletada(id:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}/detactividad/completada`, id);
+  }
+
+  public completarActividad(detalle:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}/detactividad`, detalle);
+  }
+
   public getProgresoByUnidad(codigo:any, id:any):Observable<any>{
     return this.http.get<any>(`${this.uri}/${codigo}/progreso/${id}`);
   }
@@ -26,6 +34,10 @@ export class EstudianteService {
 
   public encontrar(id:any):Observable<any>{
     return this.http.get<any>(`${this.uri}/${id}`);
+  }
+
+  public get(id:any):Observable<any>{
+    return this.http.get<any>(`${this.uri}/${id}/raw`);
   }
 
   public guardar(nuevo:any):Observable<any>{
