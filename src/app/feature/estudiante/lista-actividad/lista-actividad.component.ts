@@ -17,7 +17,7 @@ export class ListaActividadComponent {
 
   constructor(private actividadService: ActividadService, private estudianteService: EstudianteService, private tokenService: TokenService) 
   {
-    if(this.tokenService.getInfoToken().rol[0].authority != "USER"){
+    if(!this.tokenService.getInfoToken().rol.map((r) => r.authority).includes('USER')){
       this.estudiante == null
       this.actividadService.listar().subscribe(data => this.actividades = data)
     }else{

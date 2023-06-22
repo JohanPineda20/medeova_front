@@ -11,9 +11,9 @@ import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-adm
 import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component'
 import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component'
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component'
-import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component'
 import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component'
 import { GuardAuthService } from './core/services/guard-auth.service'
+import { ProfileAdminComponent } from './feature/admin/profile/profile-admin.component'
 
 const routes: Routes = [
   {path: '',
@@ -45,6 +45,8 @@ const routes: Routes = [
   canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
   
   //ADMIN
+  { path: 'myprofile', component: ProfileAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'dashboard', component: DashboardAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'actividades', component: ActividadesAdminComponent,

@@ -27,6 +27,7 @@ import { LoginComponent } from './feature/auth/login/login.component';
 import { RegisterComponent } from './feature/auth/register/register.component';
 
 //ADMIN
+import { ProfileAdminComponent } from './feature/admin/profile/profile-admin.component';
 import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-admin.component';
 import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component';
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component';
@@ -57,6 +58,7 @@ import { ListaActividadComponent } from './feature/estudiante/lista-actividad/li
     TemaComponent,
     ActividadComponent,
     ProfileComponent,
+    ProfileAdminComponent,
     ActividadesAdminComponent,
     NavAdminComponent,
     DashboardAdminComponent,

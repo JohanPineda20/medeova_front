@@ -107,15 +107,9 @@ table {
   }
 
   .expanded-element-button {
-    display: table-row;
     height: 30px;
     width: 160px;
     margin: 15px;
-  }
-  .expanded-element-button a{
-    font-size: 15px;
-    color: white;
-    font-style: normal;
   }
   .expanded-element-icon {
     display: table-column;

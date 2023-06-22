@@ -15,7 +15,7 @@ export class ActividadComponent
   completada:any = false
   
   constructor(@Inject(MAT_DIALOG_DATA) public data: { actividad: any }, private tokenService: TokenService, private estudianteService: EstudianteService) {
-    if(this.tokenService.getInfoToken().rol[0].authority == "USER"){
+    if(this.tokenService.getInfoToken().rol.map((r) => r.authority).includes('USER')){
       this.estudianteService.get(this.tokenService.getInfoToken().id).subscribe(data => {
         this.estudiante = data
         var id = {
