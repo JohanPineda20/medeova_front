@@ -37,6 +37,7 @@ import { ActividadAdminComponent } from './feature/admin/actividades/form/activi
 import { UnidadFormComponent } from './feature/admin/contenidos/forms/unidad/unidad-form.component';
 import { TemaFormComponent } from './feature/admin/contenidos/forms/tema/tema-form.component';
 import { SubtemaFormComponent } from './feature/admin/contenidos/forms/subtema/subtema-form.component';
+import { ActividadesResultAdminComponent } from './feature/admin/actividades/results/actividades-result.component';
 
 //HOME
 import { NavStudentComponent } from './feature/estudiante/nav/nav-student.component';
@@ -68,7 +69,8 @@ import { ListaActividadComponent } from './feature/estudiante/lista-actividad/li
     ListaActividadComponent,
     UnidadFormComponent,
     TemaFormComponent,
-    SubtemaFormComponent
+    SubtemaFormComponent,
+    ActividadesResultAdminComponent
   ],
   imports: [
     BrowserModule,

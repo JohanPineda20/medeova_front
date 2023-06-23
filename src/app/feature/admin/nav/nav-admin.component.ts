@@ -29,7 +29,7 @@ export class NavAdminComponent implements OnInit {
 
   logout(): void {
     this.tokenService.deleteToken(); //eliminar token de la cookie para colocar guard en false
-    this.router.navigateByUrl(""); //regresar al login
+    this.router.navigateByUrl("/login"); //regresar al login
   }
 
 }

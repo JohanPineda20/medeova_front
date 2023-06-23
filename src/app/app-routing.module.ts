@@ -14,11 +14,12 @@ import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.
 import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component'
 import { GuardAuthService } from './core/services/guard-auth.service'
 import { ProfileAdminComponent } from './feature/admin/profile/profile-admin.component'
+import { ActividadesResultAdminComponent } from './feature/admin/actividades/results/actividades-result.component'
 
 const routes: Routes = [
   {path: '',
   component: LoginComponent,
-  canActivate: [() => inject(GuardAuthService).canActiveWithAuth()],},
+  canActivate: [() => inject(GuardAuthService).canActiveLogin()]},
   {path: 'login',
   component: LoginComponent,
   canActivate: [() => inject(GuardAuthService).canActiveLogin()]},
@@ -50,6 +51,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'actividades', component: ActividadesAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
+  { path: 'actividades/:idActividad/resultados', component: ActividadesResultAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'estudiantes', component: EstudiantesAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
