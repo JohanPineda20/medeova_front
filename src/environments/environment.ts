@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: "https://medeova-backend-production.up.railway.app/api"
 };

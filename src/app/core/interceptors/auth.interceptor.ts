@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor { //interceptar las soli
       return next.handle(request); //si no hay ningún token de autenticación presente permite que las solicitudes continúen sin ser modificadas. Esto puede ser útil en escenarios donde algunas rutas o endpoints no requieren autenticación y se desea permitir el acceso sin la necesidad de un token.
     }
 
-//para las solicitudes que necesitan llevar un token
+   //para las solicitudes que necesitan llevar un token
     headers = {
       'Authorization': 'Bearer '+token
     }
@@ -41,6 +41,8 @@ export class AuthInterceptor implements HttpInterceptor { //interceptar las soli
             title: 'Oops...',
             text: 'No tienes permisos para acceder a ésta página.'
           })
+       /* this.tokenService.deleteToken()
+          this.router.navigateByUrl("") //cerrar sesion porque venció la expiracion del token */
         }
         return throwError(() => err);
       })

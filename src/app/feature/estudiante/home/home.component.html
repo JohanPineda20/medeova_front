@@ -40,7 +40,7 @@
                   <div class="card-header py-3 text-center titulo-card">
                       <a class="m-0 font-weight-bold titulo-card text-decoration-none" [routerLink]="['/unidad/', i.idUnidad]">Unidad {{index+1}}: {{i.titulo}}</a>
                   </div>
-                  <div class="card-body text-center">
+                  <div class="card-body">
                       {{i.descripcion}}
                   </div>
               </div>
@@ -53,11 +53,8 @@
   <!-- /.container-fluid 1-->
   
   <div class="container-fluid min-container"   >
-          
       <div class="row container-tema"  > 
           <div  style="color: white;">
-  
-  
               <div class="d-flex flex-row">
                   <div class="pt-3">
                       <img src="../../../../assets/Rectangle 10.png" alt="">
@@ -66,8 +63,7 @@
                       <h2 class="mt-4 ms-2" >Temas</h2>
                   </div>
               </div>
-              
-              <div class="text-center temas-msj" >
+              <div class="temas-msj" >
                   <p>{{mensajes?.temas}}</p>
               </div>
              <!-- Button para desplegar el container-fluid 2-->
