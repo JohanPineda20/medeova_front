@@ -37,6 +37,10 @@ export class UnidadService {
     return this.http.get<any>(`${this.uri}/${id}`);
   }
 
+  public editar(nuevo:any, id:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}/${id}`, nuevo);
+  }
+
   public guardar(nuevo:any):Observable<any>{
     return this.http.post<any>(`${this.uri}`, nuevo);
   }

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 .material-icons{
@@ -17,17 +18,7 @@
   transition:  all 0.5s ease;
   background: rgb(238, 237, 237);
 }
-.table-content{
-  display: absolute;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 12px;
-  padding: 20px 25px 30px;
-  margin: 0px 15px;
-  background-color: white;
-}
 .title{
-  font-family: 'Poppins', sans-serif;
   display: flex;
   align-items: center;
   margin: 20px 0 30px 0;
@@ -50,6 +41,12 @@
   font-weight: 500;
   margin-left: 10px;
 }
-.form-item{
-  margin: 10px
+.table-content{
+    display: absolute;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    padding: 20px 25px 30px;
+    margin: 0px 15px;
+    background-color: white;
 }

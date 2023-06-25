@@ -17,7 +17,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon'
 import {MatTabsModule} from '@angular/material/tabs';
-import {MatSelectModule} from '@angular/material/select';
+import {MatSelectModule} from '@angular/material/select'
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //AUTH
@@ -25,12 +27,17 @@ import { LoginComponent } from './feature/auth/login/login.component';
 import { RegisterComponent } from './feature/auth/register/register.component';
 
 //ADMIN
+import { ProfileAdminComponent } from './feature/admin/profile/profile-admin.component';
 import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-admin.component';
 import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component';
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component';
 import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component';
 import { NavAdminComponent } from './feature/admin/nav/nav-admin.component';
 import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component';
+import { UnidadFormComponent } from './feature/admin/contenidos/forms/unidad/unidad-form.component';
+import { TemaFormComponent } from './feature/admin/contenidos/forms/tema/tema-form.component';
+import { SubtemaFormComponent } from './feature/admin/contenidos/forms/subtema/subtema-form.component';
+import { ActividadesResultAdminComponent } from './feature/admin/actividades/results/actividades-result.component';
 
 //HOME
 import { NavStudentComponent } from './feature/estudiante/nav/nav-student.component';
@@ -52,13 +59,18 @@ import { ListaActividadComponent } from './feature/estudiante/lista-actividad/li
     TemaComponent,
     ActividadComponent,
     ProfileComponent,
+    ProfileAdminComponent,
     ActividadesAdminComponent,
     NavAdminComponent,
     DashboardAdminComponent,
     ContenidosAdminComponent,
     EstudiantesAdminComponent,
     ActividadAdminComponent,
-    ListaActividadComponent
+    ListaActividadComponent,
+    UnidadFormComponent,
+    TemaFormComponent,
+    SubtemaFormComponent,
+    ActividadesResultAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +87,9 @@ import { ListaActividadComponent } from './feature/estudiante/lista-actividad/li
     MatInputModule,
     MatIconModule,
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [
     {

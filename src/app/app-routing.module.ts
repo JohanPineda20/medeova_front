@@ -11,14 +11,15 @@ import { DashboardAdminComponent } from './feature/admin/dashboard/dashboard-adm
 import { ActividadesAdminComponent } from './feature/admin/actividades/actividades.component'
 import { EstudiantesAdminComponent } from './feature/admin/estudiantes/estudiantes.component'
 import { ContenidosAdminComponent } from './feature/admin/contenidos/contenidos.component'
-import { ActividadAdminComponent } from './feature/admin/actividades/form/actividad.component'
 import { ListaActividadComponent } from './feature/estudiante/lista-actividad/lista-actividad.component'
 import { GuardAuthService } from './core/services/guard-auth.service'
+import { ProfileAdminComponent } from './feature/admin/profile/profile-admin.component'
+import { ActividadesResultAdminComponent } from './feature/admin/actividades/results/actividades-result.component'
 
 const routes: Routes = [
   {path: '',
   component: LoginComponent,
-  canActivate: [() => inject(GuardAuthService).canActiveLogin()],},
+  canActivate: [() => inject(GuardAuthService).canActiveLogin()]},
   {path: 'login',
   component: LoginComponent,
   canActivate: [() => inject(GuardAuthService).canActiveLogin()]},
@@ -40,24 +41,23 @@ const routes: Routes = [
   {path: 'actividad/:idActividad',
   component: ActividadComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
-  { path: 'actividades',
+  { path: 'listaractividades',
   component: ListaActividadComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithAuth()]},
   
   //ADMIN
+  { path: 'myprofile', component: ProfileAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'dashboard', component: DashboardAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
-  { path: 'admin/actividades', component: ActividadesAdminComponent,
+  { path: 'actividades', component: ActividadesAdminComponent,
+  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
+  { path: 'actividades/:idActividad/resultados', component: ActividadesResultAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'estudiantes', component: EstudiantesAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
   { path: 'contenidos', component: ContenidosAdminComponent,
   canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
-  {path: 'admin/actividad/:idActividad',component: ActividadAdminComponent,
-  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]},
-  {path: 'admin/actividad',component: ActividadAdminComponent,
-  canActivate: [() => inject(GuardAuthService).canActiveWithRolAdmin()]}
-
 ];
 
 @NgModule({

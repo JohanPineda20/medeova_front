@@ -1,0 +1,48 @@
+<app-nav-admin></app-nav-admin>
+  <!-- Jumbotron -->
+  <body>
+    <div class="dashboard">
+        <div class="title">
+            <i class="uil uil-tachometer-fast-alt"></i>
+            <span class="text">Mi perfil</span>
+        </div>
+        <div class="table-content">
+            <form role="form" [formGroup]="perfilForm">
+              <!-- codigo input -->
+              <div class="form-outline mb-4">
+                <label for="nombre">Código</label>
+                <input formControlName="codigo" type="text" class="form-control" readonly/>
+              </div>
+              <!-- nombres input -->
+              <div class="row">
+                  <div class="form-outline col-6">
+                    <label for="nombre">Primer nombre:</label>
+                    <input formControlName="priNombre" type="text" class="form-control" readonly/>
+                  </div>
+                  <div class="form-outline col-6 mb-4">
+                    <label for="nombre">Primer apellido:</label>
+                    <input formControlName="segNombre" type="text" class="form-control" readonly/>
+                  </div>
+                  <div class="form-outline col">
+                    <label for="nombre">Segundo nombre:</label>
+                    <input formControlName="priApellido" type="text" class="form-control" readonly/>
+                  </div>
+                  <div class="form-outline col mb-4">
+                    <label for="nombre">Segundo apellido:</label>
+                    <input formControlName="segApellido" type="text" class="form-control" readonly/>
+                  </div>
+              </div>
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <label for="nombre">Correo:</label>
+                <input formControlName="email" type="email" id="form3Example3" class="form-control" readonly/>
+              </div>
+            </form>
+          </div>
+    </div>
+</body>
+
+
+
+
+

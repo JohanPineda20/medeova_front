@@ -8,11 +8,12 @@ import {
 import {catchError, Observable, throwError} from 'rxjs';
 import {TokenService} from "../services/token.service";
 import Swal from 'sweetalert2'
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor { //interceptar las solicitudes antes de que sean enviadas al servidor.
 
-  constructor(private tokenService: TokenService) {}
+  constructor(private tokenService: TokenService, private router: Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let headers;
@@ -40,6 +41,8 @@ export class AuthInterceptor implements HttpInterceptor { //interceptar las soli
             icon: 'error',
             title: 'Oops...',
             text: 'No tienes permisos para acceder a ésta página.'
+          }).then(() => {
+            this.router.navigateByUrl('');
           })
        /* this.tokenService.deleteToken()
           this.router.navigateByUrl("") //cerrar sesion porque venció la expiracion del token */

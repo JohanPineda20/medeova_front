@@ -34,9 +34,6 @@
           <div class="col-lg-3" *ngFor="let i of unidades; let index = index">
               <!-- Basic Card Example -->
               <div class="card shadow mb-4" >
-                  <div class="text-center">
-                      <img style="width: 40%"  src="{{i.img}}" alt="logo-ufps">
-                  </div>
                   <div class="card-header py-3 text-center titulo-card">
                       <a class="m-0 font-weight-bold titulo-card text-decoration-none" [routerLink]="['/unidad/', i.idUnidad]">Unidad {{index+1}}: {{i.titulo}}</a>
                   </div>

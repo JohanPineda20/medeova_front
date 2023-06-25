@@ -41,6 +41,10 @@ export class TemaService {
     return this.http.post<any>(`${this.uri}`, nuevo);
   }
 
+  public editar(nuevo:any, id:any):Observable<any>{
+    return this.http.post<any>(`${this.uri}/${id}`, nuevo);
+  }
+
   public eliminar(id:any):Observable<any>{
     return this.http.delete<any>(`${this.uri}/${id}`);
   }
