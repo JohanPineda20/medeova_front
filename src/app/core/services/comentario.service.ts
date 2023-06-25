@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import * as global from 'src/global'
 import { Observable } from 'rxjs';
+import {environment} from "../../../environments/environment.development";
+const { apiUrl } = environment;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ComentarioService {
 
-  uri = `${global.url}/comentario`;
+  uri = `${apiUrl}/comentario`;
   constructor(private http:HttpClient) { }
 
   
