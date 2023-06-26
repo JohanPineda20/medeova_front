@@ -18,7 +18,7 @@
         <div class="sidebar-content">
           <ul class="lists">
             <li class="list" *ngFor="let i of menuItems">
-              <a href="{{i[2]}}" class="nav-link">
+              <a [routerLink]="i[2]" class="nav-link">
                 <i class="{{i[1]}}"></i>
                 <span class="link">{{i[0]}}</span>
               </a>
@@ -26,7 +26,7 @@
 
           <div class="bottom-cotent lists">
             <li class="list">
-              <a href="/myprofile" class="nav-link">
+              <a routerLink="/myprofile" class="nav-link">
                 <i class="bx bx-cog icon"></i>
                 <span class="link">Mi perfil</span>
               </a>

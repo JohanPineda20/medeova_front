@@ -9,7 +9,7 @@
     <p>{{data.actividad.instrucciones}}</p><hr>
 
     <div class="row justify-content-around">
-        <a class="col-md-3" href="{{data.actividad.url}}" target="_blank">
+        <a class="col-md-3" routerLink="{{data.actividad.url}}" target="_blank">
             <button class="btn btn-danger">Ir a la actividad</button>
         </a>
         <button *ngIf="completada==true && estudiante != null" class="btn btn-success col-md-3" disabled="true"> <i class="fa-sharp fa-solid fa-circle-check"></i> Completada</button>
