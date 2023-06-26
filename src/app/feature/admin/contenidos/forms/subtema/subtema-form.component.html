@@ -50,7 +50,7 @@
         <tr *ngFor="let m of multimedia; let i=index">
           <td>{{i}}</td>
           <td>{{m.titulo}}</td>
-          <td><a routerLink="{{m.url}}" target="_blank">{{m.url}}</a></td>
+          <td><a routerLink="m.url" target="_blank">{{m.url}}</a></td>
           <td><button class="btn btn-danger" (click)="deleteMultimedia(i)"><mat-icon>delete</mat-icon></button></td>
         </tr>
       </tbody>

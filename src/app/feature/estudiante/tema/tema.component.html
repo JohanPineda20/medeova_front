@@ -33,7 +33,7 @@
                     <div class="row row-multimedia text-center justify-content-center">
                         <div class="container-multimedia col-md-5 " *ngFor="let m of i.multimedia">
                             <div class="align-items-center center">
-                                <a class="subtitle" routerLink="{{m.url}}" target="_blank"><p class="subtitle">{{m.titulo}}</p></a>
+                                <a class="subtitle" routerLink="m.url" target="_blank"><p class="subtitle">{{m.titulo}}</p></a>
                                 <iframe class="row-iframe" [src]="sanitizeUrl(m.url)" title="{{m.titulo}}" frameborder="0" autos></iframe>  
                             </div>
                         </div>
